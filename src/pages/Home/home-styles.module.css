@@ -1,0 +1,12 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container h2 {
+  color: white;
+  font-size: 2.6em;
+  letter-spacing: 0.2em;
+}/*# sourceMappingURL=home-styles.module.css.map */

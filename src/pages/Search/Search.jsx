@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import FilterInput from "./../../components/FilterInput/FilterInput"
 
@@ -6,6 +6,14 @@ import style from "./search-styles.module.scss"
 
 const Search = ({ bodies }) => {
   const [filterType, setFilterType] = useState(null)
+  const [filterTitle, setFilterTitle] = useState("Filters")
+
+  useEffect(() => {
+    if (filterType)
+    setFilterTitle(filterType.charAt(0).toUpperCase()+ filterType.slice(1))
+  }, [filterType])
+  
+
 
   const getSearchResults = (event) => {
     event.target.preventDefault()
@@ -16,7 +24,7 @@ const Search = ({ bodies }) => {
     <form className={style["container"]} onSubmit={getSearchResults}>
       <div className={style["header"]}>
         <div className={style["filter-menu"]}>
-          Filters
+          {filterTitle}
           <ul className={style["filter-menu-content"]}>
             <li onClick={() => {setFilterType("bodyType")}}>Body Type</li>
             <li onClick={() => {setFilterType("mass")}}>Mass</li>

@@ -1,17 +1,16 @@
 .container {
-  background-color: rgb(191, 186, 186);
+  background-color: rgb(73, 72, 72);
   display: flex;
   flex-direction: column;
-  height: 50%;
-  width: 50%;
-  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .header {
   display: flex;
   background-color: lightgray;
   box-sizing: border-box;
-  position: relative;
+  
   top: 0;
   width: 100%;
 }
@@ -22,46 +21,58 @@
   padding: 1em;
   font-size: 1em;
   text-align: center;
+  position: relative;
   border: none;
   width: 20%;
   box-sizing: border-box;
   cursor: pointer;
 }
 
-.filter-menu-content {
-  display: none;
+.triangle {
+  background-color: none;
+  width: 0; 
+  height: 100%; 
+  border-top: 1.5em solid transparent;
+  border-bottom: 1.5em solid transparent;
+  position: absolute;
+  z-index: 1;
+  border-left: 1em solid #3d5fa8;
+  left: 100%;
+  box-sizing: border-box
+}
+
+
+.filter-menu-content{ 
+  display:none;
   box-sizing: border-box;
   background-color: #f1f1f1;
   position: absolute;
   z-index: 1;
-  top: 3em;
+  top: 100%;
   left: 0;
   margin: 0;
   padding: 0;
   width: 100%;
-}
-.filter-menu-content li {
-  color: black;
-  padding: 1em 1em;
-  text-decoration: none;
-  display: block;
-  box-sizing: border-box;
-  margin: 0;
-  width: 100%;
-  text-align: left;
+
+  li {
+    color: black;
+    padding: 1em 1em;
+    text-decoration: none;
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+  }
 }
 
-.filter-menu:hover .filter-menu-content {
-  display: block;
-}
+.filter-menu:hover .filter-menu-content {display: block}
 
 .filter-menu-content li:hover {
   background-color: #ddd;
 }
 
-.filter-menu-content:hover .filter-menu-content {
-  display: block;
-}
+.filter-menu-content:hover .filter-menu-content {display: block} 
 
 .submit-button {
   background-color: #04AA6D;
@@ -73,4 +84,4 @@
   width: 20%;
   box-sizing: border-box;
   cursor: pointer;
-}/*# sourceMappingURL=bodyform-styles.module.css.map */
+}

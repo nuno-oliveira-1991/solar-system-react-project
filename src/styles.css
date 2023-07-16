@@ -1,27 +1,19 @@
 
 html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: 'Inter', sans-serif;
 }
 
 #root {
-  height: 100vh;
   display: flex;
+  margin: 0;
+  padding: 0;
+  height: 100%;
   background-color: black;
 }
 
-.chatbot-panel {
-  height: 100vh;
-  width: 30%;
-  font-family: sans-serif;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  box-sizing: border-box;
-  position: relative;
-}
 
 
 ::-webkit-scrollbar {
@@ -30,7 +22,4 @@ html, body {
 }
 
 @media screen and (max-width: 768px) {
-  .chatbot-panel {
-    width: 100vw;
-  }
 }

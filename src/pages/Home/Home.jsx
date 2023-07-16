@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import BodyForm from "../../components/BodyForm/BodyForm"
+import Search from "./../Search/Search"
+import SystemModel from "./../../components/SystemModel/SystemModel"
 
 import style from "./home-styles.module.scss"
 
@@ -19,10 +20,16 @@ const Home = () => {
   }, [])
 
   return (
+
     <div className={style["container"]}>
-      <h2>THE SOLAR SYSTEM</h2>
-      {isLoading == false && <BodyForm bodies={allBodies} />}
+      <div className={style["search-panel"]}>
+        {isLoading == false && <Search bodies={allBodies} />}
+      </div>
+      <div className={style["model-panel"]}>
+        <SystemModel />
+      </div>
     </div>
+    
   )
 }
 

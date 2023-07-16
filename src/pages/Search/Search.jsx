@@ -1,10 +1,10 @@
 import { useState } from "react"
 
-import BodyFormInput from "./../BodyFormInput/BodyFormInput"
+import FilterInput from "./../../components/FilterInput/FilterInput"
 
-import style from "./bodyform-styles.module.scss"
+import style from "./search-styles.module.scss"
 
-const BodyForm = ({ bodies }) => {
+const Search = ({ bodies }) => {
   const [filterType, setFilterType] = useState(null)
 
   const getSearchResults = (event) => {
@@ -13,9 +13,9 @@ const BodyForm = ({ bodies }) => {
   
   // criar componente para os dropdown menus?
   return (
-    <form className={style["container"]}>
+    <form className={style["container"]} onSubmit={getSearchResults}>
       <div className={style["header"]}>
-        <span className={style["filter-menu"]}>
+        <div className={style["filter-menu"]}>
           Filters
           <ul className={style["filter-menu-content"]}>
             <li onClick={() => {setFilterType("bodyType")}}>Body Type</li>
@@ -23,12 +23,12 @@ const BodyForm = ({ bodies }) => {
             <li onClick={() => {setFilterType("gravity")}}>Gravity</li>
             <li onClick={() => {setFilterType("density")}}>Density</li>
           </ul>
-        </span>
-        <BodyFormInput filterType={filterType} bodies={bodies}/>
+        </div>
+        <FilterInput filterType={filterType} bodies={bodies}/>
         <button className={style["submit-button"]} type="submit">Search</button>
       </div>
     </form>
   )
 }
 
-export default BodyForm
+export default Search

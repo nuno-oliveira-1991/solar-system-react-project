@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FormStatesContextProvider } from "./../Search/FormContext";
 import Search from "./../Search/Search"
 import SystemModel from "./../../components/SystemModel/SystemModel"
 
@@ -23,7 +24,11 @@ const Home = () => {
 
     <div className={style["container"]}>
       <div className={style["search-panel"]}>
-        {isLoading == false && <Search bodies={allBodies} />}
+        {isLoading == false && 
+          <FormStatesContextProvider>
+            <Search bodies={allBodies}/>
+          </FormStatesContextProvider>
+        }
       </div>
       <div className={style["model-panel"]}>
         <SystemModel />

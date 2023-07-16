@@ -1,5 +1,4 @@
 .container {
-  background-color: rgb(73, 72, 72);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -10,7 +9,7 @@
   display: flex;
   background-color: lightgray;
   box-sizing: border-box;
-  
+  background-color:  rgb(58, 58, 58);
   top: 0;
   width: 100%;
 }
@@ -23,22 +22,9 @@
   text-align: center;
   position: relative;
   border: none;
-  width: 20%;
+  width: 30%;
   box-sizing: border-box;
   cursor: pointer;
-}
-
-.triangle {
-  background-color: none;
-  width: 0; 
-  height: 100%; 
-  border-top: 1.5em solid transparent;
-  border-bottom: 1.5em solid transparent;
-  position: absolute;
-  z-index: 1;
-  border-left: 1em solid #3d5fa8;
-  left: 100%;
-  box-sizing: border-box
 }
 
 

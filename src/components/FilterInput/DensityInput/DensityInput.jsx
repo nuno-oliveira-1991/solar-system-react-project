@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useFormStatesContext } from "./../../../pages/Search/FormContext";
 
 import style from "./../filter-input-styles.module.scss"
 
-const DensityInput = () => {  
-  const [density, setDensity] = useState("")
+const DensityInput = ({ density, setDensity }) => {  
+  
 
   return (
     <>

@@ -1,9 +1,8 @@
-import { useState } from "react"
+import { useFormStatesContext } from "./../../../pages/Search/FormContext";
 
 import style from "./../filter-input-styles.module.scss"
 
-const GravityInput = () => {  
-  const [gravity, setGravity] = useState("")
+const GravityInput = ({ gravity, setGravity }) => {  
 
   return (
     <>

@@ -1,15 +1,22 @@
 import { useState, useEffect } from "react"
+import { useFormStatesContext } from "./../../../pages/Search/FormContext";
 
 import style from "./../filter-input-styles.module.scss"
 
-const MassInput = () => {  
-  const [mass, setMass] = useState(null)
+const MassInput = ({ mass, setMass }) => {  
   const [massValue, setMassValue] = useState(null)
   const [massExponent, setMassExponent] = useState(null)
 
   useEffect(() => {
-    setMass(massValue ** massExponent)
-  }, [massValue, massExponent])
+    // Parse the values as numbers before calculating the mass
+    const value = parseFloat(massValue);
+    const exponent = parseFloat(massExponent);
+  
+    if (!isNaN(value) && !isNaN(exponent)) {
+      // Perform the exponentiation only if the values are valid numbers
+      setMass(value ** exponent);
+    }
+  }, [massValue, massExponent]);
 
   return (
     <>

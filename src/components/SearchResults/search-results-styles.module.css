@@ -1,0 +1,21 @@
+.container {
+  background-color: #a5a4a4;
+  color: white;
+  height: 100%;
+  width: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.identification {
+  position: relative;
+  width: 50%;
+}/*# sourceMappingURL=search-results-styles.module.css.map */

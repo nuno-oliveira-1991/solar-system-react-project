@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react"
+import { useFormStatesContext } from "./../../../pages/Search/FormContext";
 
 import style from "./../filter-input-styles.module.scss"
 
-const BodyTypeForm = () => {
-  const [bodyType, setBodyType] = useState(null)
+const BodyTypeInput = ({ bodyType, setBodyType }) => {
+  
   return (
     <>
       <span className={style["filter-menu"]}>
@@ -13,7 +13,7 @@ const BodyTypeForm = () => {
       <ul className={style["filter-menu-content"]}>
         <li onClick={() => {setBodyType("Star")}}>Star</li>
         <li onClick={() => {setBodyType("Planet")}}>Planet</li>
-        <li onClick={() => {setBodyType("DwarfPlanet")}}>Dwarf Planet</li>
+        <li onClick={() => {setBodyType("Dwarf Planet")}}>Dwarf Planet</li>
         <li onClick={() => {setBodyType("Moon")}}>Moon</li>
         <li onClick={() => {setBodyType("Comet")}}>Comet</li>
         <li onClick={() => {setBodyType("Asteroid")}}>Asteroid</li>
@@ -22,4 +22,4 @@ const BodyTypeForm = () => {
   )
 }
 
-export default BodyTypeForm
+export default BodyTypeInput

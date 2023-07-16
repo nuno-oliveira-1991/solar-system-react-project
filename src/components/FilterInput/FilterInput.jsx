@@ -1,36 +1,21 @@
-import { useState, useEffect } from "react"
+import { useFormStatesContext } from "./../../pages/Search/FormContext";
 
-import BodyTypeInput from "./BodyTypeInput/BodyTypeForm";
-import MassInput from "./MassInput/MassInput";
-import GravityInput from "./GravityInput/GravityInput";
-import DensityInput from "./DensityInput/DensityInput";
+import BodyTypeInput from "./BodyTypeInput/BodyTypeInput";
+import MassInput from "./MassInput/MassInput"
+import GravityInput from  "./GravityInput/GravityInput"
+import DensityInput from "./DensityInput/DensityInput"
 
 import style from "./filter-input-styles.module.scss"
 
-const FilterInput = ({ filterType, bodies }) => {
-
-  function compareNumbers(a, b) {
-    if (a < b) {
-      return -1;
-    } else if (a > b) {
-      return 1;
-    }
-    return null;
-  }
-
-  /*
-  let sortedByMass = bodies.map((body) => {
-    return {density:body.density, name:body.englishName}
-  });
-  */
+const FilterInput = () => {
+  const { filterType, bodyType, setBodyType, mass, setMass, gravity, setGravity, density, setDensity} = useFormStatesContext();
   
-
   return (
     <div className={style["container"]}>
-      {filterType === "bodyType" && <BodyTypeInput />}
-      {filterType === "mass" && <MassInput />}
-      {filterType === "gravity" && <GravityInput />}
-      {filterType === "density" && <DensityInput />}
+      {filterType === "bodyType" && <BodyTypeInput bodyType={bodyType} setBodyType={setBodyType}/>}
+      {filterType === "mass" && <MassInput mass={mass} setMass={setMass}/>}
+      {filterType === "gravity" && <GravityInput gravity={gravity} setGravity={setGravity}/>}
+      {filterType === "density" && <DensityInput density={density} setDensity={setDensity}/>}
     </div>
   )
 }

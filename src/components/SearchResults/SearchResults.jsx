@@ -2,50 +2,56 @@ import { useEffect, useState } from "react";
 import style from "./search-results-styles.module.scss";
 
 const SearchResults = ({ isSearchSubmitted, bodies, filterType, bodyType, mass, gravity, density }) => {
-  const [searchResults, setSearchResults] = useState("")
-  const [resultProp, setResultProp] = useState("")
+  const [searchResults, setSearchResults] = useState("");
 
-  console.log(bodies)
   useEffect(() => {
     if (isSearchSubmitted) {
+      const updatedBodies = bodies.map((body) => {
+        if (body.englishName === "Sun") {
+          return { ...body, gravity: 274, density: 1.41 };
+        }
+        return body;
+      });
+
       let bodiesThatMatched;
 
       if (filterType === "bodyType") {
-        bodiesThatMatched = bodies.filter((body) => body.bodyType === bodyType);
+        bodiesThatMatched = updatedBodies.filter((body) => body.bodyType === bodyType);
       } else if (filterType === "mass") {
-        bodiesThatMatched = bodies.filter((body) => {
+        bodiesThatMatched = updatedBodies.filter((body) => {
           if (body.mass?.massValue && body.mass?.massExponent) {
-            return body.mass.massValue ** body.mass.massExponent >= mass;
-          } return false;
+            return body.mass.massValue * Math.pow(10, body.mass.massExponent) >= mass;
+          }
+          return false;
         });
       } else if (filterType === "gravity") {
-        bodiesThatMatched = bodies.map((body) => {
-          if (body.englishName === "sun") {
-            return { ...body, gravity: 274 };
+        bodiesThatMatched = updatedBodies.filter((body) => {
+          if (body.gravity) {
+            return body.gravity >= gravity;
           }
-          return body;
+          return false;
         });
       } else if (filterType === "density") {
-        bodiesThatMatched = bodies.map((body) => {
-          if (body.englishName === "sun") {
-            return { ...body, density: 1.41 };
+        bodiesThatMatched = updatedBodies.filter((body) => {
+          if (body.density) {
+            return body.density >= density;
           }
-          return body;
+          return false;
         });
       }
-      console.log(bodiesThatMatched)
       setSearchResults(bodiesThatMatched);
     }
-  }, [isSearchSubmitted]);
+  }, [isSearchSubmitted, mass, density, bodyType, gravity, bodies, filterType]);
 
   return (
     <div className={style["container"]}>
-      {searchResults && searchResults.map((body) => (
-        <div key={body.id} className={style["result-item"]}>
-          <span className={style["identification"]}>{body.englishName}</span>
-          <span className={style["identification"]}>{body.bodyType}</span>
-        </div>
-      ))}
+      {searchResults &&
+        searchResults.map((body) => (
+          <div key={body.id} className={style["result-item"]}>
+            <span className={style["identification"]}>{body.englishName}</span>
+            <span className={style["identification"]}>{body.bodyType}</span>
+          </div>
+        ))}
     </div>
   );
 };

@@ -26,12 +26,6 @@ const Search = ({ bodies }) => {
     setIsSearchSubmitted
   } = useFormStatesContext()
 
-  let sunIndex = bodies.findIndex((body) => body.englishName == "Sun");
-  if (sunIndex !== -1) {
-    bodies[sunIndex].gravity = 274;
-    bodies[sunIndex].density = 1.41;
-  }
-
   const getSearchResults = (event) => {
     event.preventDefault()
     if (!isSearchInitialized) {

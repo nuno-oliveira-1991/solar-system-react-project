@@ -11,7 +11,7 @@ export const useFormStatesContext = () => {
 };
 
 export const FormStatesContextProvider = ({ children }) => {
-  const [filterType, setFilterType] = useState("");
+  const [filterType, setFilterType] = useState(undefined);
   const [filterTitle, setFilterTitle] = useState("Filters");
   const [bodyType, setBodyType] = useState(undefined);
   const [mass, setMass] = useState();

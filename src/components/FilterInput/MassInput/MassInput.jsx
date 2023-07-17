@@ -12,7 +12,7 @@ const MassInput = ({ mass, setMass }) => {
     const exponent = parseFloat(massExponent);
 
     if (!isNaN(value) && !isNaN(exponent)) {
-      setMass(value ** exponent);
+      setMass(value * Math.pow(10, exponent))
     }
   }, [massValue, massExponent]);
 
@@ -31,7 +31,7 @@ const MassInput = ({ mass, setMass }) => {
           <label>Exponent</label>
           <input type="number" className={style["input"]} value={massExponent} onChange={(event) => {
             setMassExponent(event.target.value)
-          }} min="0" max="50" />
+          }} min="0" max="28" />
         </li>
       </ul>
     </>

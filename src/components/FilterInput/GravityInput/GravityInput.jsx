@@ -15,7 +15,7 @@ const GravityInput = ({ gravity, setGravity }) => {
           <span>Value</span>
           <input type="number" className={style["input"]} value={gravity} onChange={(event) => {
             setGravity(event.target.value)
-          }} min="0" max="280" step="0.1"/>
+          }} min="0" max="280" step="0.05"/>
         </li>
       </ul>
     </>

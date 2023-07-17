@@ -1,0 +1,170 @@
+.background {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.solar-system {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sun {
+  background: orange;
+  height: 5em;
+  width: 5em;
+  border-radius: 100%;
+  position: relative;
+}
+
+.orbit {
+  position: absolute;
+  margin: auto;
+  border: 0;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+/* ---------- Planets ---------- */
+.mercury {
+  background: pink;
+  height: 0.2em;
+  width: 0.2em;
+  border-radius: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.venus {
+  background: yellow;
+  height: 0.6em;
+  width: 0.6em;
+  border-radius: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.earth {
+  background: blue;
+  height: 0.7em;
+  width: 0.7em;
+  border-radius: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.mars {
+  background: red;
+  height: 0.4em;
+  width: 0.4em;
+  border-radius: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.jupiter {
+  background: rgb(176, 123, 77);
+  height: 2.4em;
+  width: 2.4em;
+  border-radius: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.saturn {
+  background: rgb(222, 202, 177);
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 100%;
+}
+
+.saturn-ring {
+  background: none;
+  border: 2px solid rgb(194, 189, 182);
+  height: 2.8em;
+  width: 2.8em;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+}
+
+.uranus {
+  background: lightblue;
+  height: 1em;
+  width: 1em;
+  border-radius: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.neptune {
+  background: skyblue;
+  height: 1em;
+  width: 1em;
+  border-radius: 100%;
+  margin: auto;
+  position: relative;
+}
+
+/* ---------- Orbits ---------- */
+.orbit:has(.mercury) {
+  width: 10em;
+  height: 10em;
+  animation: spin-right 5s linear infinite;
+}
+
+.orbit:has(.venus) {
+  width: 13em;
+  height: 13em;
+  animation: spin-right 14s linear infinite;
+}
+
+.orbit:has(.earth) {
+  width: 16em;
+  height: 16em;
+  animation: spin-right 22s linear infinite;
+}
+
+.orbit:has(.mars) {
+  width: 19em;
+  height: 19em;
+  animation: spin-right 35s linear infinite;
+}
+
+.orbit:has(.jupiter) {
+  width: 27em;
+  height: 27em;
+  animation: spin-right 75s linear infinite;
+}
+
+.orbit:has(.saturn-ring) {
+  width: 35em;
+  height: 35em;
+  animation: spin-right 140s linear infinite;
+}
+
+.orbit:has(.uranus) {
+  width: 40em;
+  height: 40em;
+  animation: spin-right 350s linear infinite;
+}
+
+.orbit:has(.neptune) {
+  width: 44em;
+  height: 44em;
+  animation: spin-right 650s linear infinite;
+}
+
+/* ---------- Animations ---------- */
+@keyframes spin-right {
+  100% {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=system-model-styles.module.css.map */

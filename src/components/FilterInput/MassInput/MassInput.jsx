@@ -4,16 +4,14 @@ import { useFormStatesContext } from "./../../../pages/Search/FormContext";
 import style from "./../filter-input-styles.module.scss"
 
 const MassInput = ({ mass, setMass }) => {  
-  const [massValue, setMassValue] = useState(null)
-  const [massExponent, setMassExponent] = useState(null)
+  const [massValue, setMassValue] = useState("")
+  const [massExponent, setMassExponent] = useState("")
 
   useEffect(() => {
-    // Parse the values as numbers before calculating the mass
     const value = parseFloat(massValue);
     const exponent = parseFloat(massExponent);
-  
+
     if (!isNaN(value) && !isNaN(exponent)) {
-      // Perform the exponentiation only if the values are valid numbers
       setMass(value ** exponent);
     }
   }, [massValue, massExponent]);
@@ -21,8 +19,8 @@ const MassInput = ({ mass, setMass }) => {
   return (
     <>
       <span className={style["filter-menu"]}>
-        {mass === null && <span>Choose mass</span>}
-        {mass && <span>at least {mass} kg</span>}
+        {mass === undefined && <span>Choose mass</span>}
+        {mass >= 0 && <span>at least {mass} kg</span>}
       </span>
       <ul className={style["filter-menu-content"]}>
         <li>

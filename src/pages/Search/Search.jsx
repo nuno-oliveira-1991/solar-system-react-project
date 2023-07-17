@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 import { useFormStatesContext } from "./FormContext";
 import FilterInput from "./../../components/FilterInput/FilterInput"
 import SearchResults from "../../components/SearchResults/SearchResults";
@@ -20,25 +20,43 @@ const Search = ({ bodies }) => {
     setGravity,
     density,
     setDensity,
-    showResults,
-    setShowResults
-  } = useFormStatesContext();
+    isSearchInitialized,
+    setIsSearchInitialized,
+    isSearchSubmitted, 
+    setIsSearchSubmitted
+  } = useFormStatesContext()
+
+  let sunIndex = bodies.findIndex((body) => body.englishName == "Sun");
+  if (sunIndex !== -1) {
+    bodies[sunIndex].gravity = 274;
+    bodies[sunIndex].density = 1.41;
+  }
 
   const getSearchResults = (event) => {
     event.preventDefault()
-    setShowResults(true)
-    console.log(showResults)
+    if (!isSearchInitialized) {
+      setIsSearchInitialized(true)
+      setIsSearchSubmitted(true);
+    }
+    setIsSearchSubmitted(true);
   }
 
   useEffect(() => {
     if (filterType)
     setFilterTitle(filterType.charAt(0).toUpperCase()+ filterType.slice(1))
   }, [filterType])
+
+  useEffect(() => {
+    if (isSearchSubmitted) {
+      setIsSearchSubmitted(false)
+    }
+    
+  }, [isSearchSubmitted]);
   
   
   return (
     <div className={style["container"]}>
-      <form>
+      <form onSubmit={getSearchResults}>
       <div className={style["header"]}>
         <div className={style["filter-menu"]}>
           {filterTitle}
@@ -56,10 +74,10 @@ const Search = ({ bodies }) => {
           gravity= {gravity}
           density={density}
         />
-        <button className={style["submit-button"]} onClick={getSearchResults} type="submit">Search</button>
+        <button className={style["submit-button"]} type="submit">Search</button>
       </div>
     </form>
-    { showResults && 
+    {isSearchInitialized && 
       <SearchResults 
       bodies={bodies}
       filterType={filterType} 
@@ -67,7 +85,7 @@ const Search = ({ bodies }) => {
       mass={mass} 
       gravity= {gravity}
       density={density}
-      showResults={showResults}
+      isSearchSubmitted={isSearchSubmitted}
       />
     }
     </div>

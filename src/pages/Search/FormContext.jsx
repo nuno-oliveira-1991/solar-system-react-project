@@ -11,13 +11,14 @@ export const useFormStatesContext = () => {
 };
 
 export const FormStatesContextProvider = ({ children }) => {
-  const [filterType, setFilterType] = useState(null);
+  const [filterType, setFilterType] = useState("");
   const [filterTitle, setFilterTitle] = useState("Filters");
-  const [bodyType, setBodyType] = useState(null);
-  const [mass, setMass] = useState(null);
+  const [bodyType, setBodyType] = useState(undefined);
+  const [mass, setMass] = useState();
   const [gravity, setGravity] = useState("");
   const [density, setDensity] = useState("");
-  const [showResults, setShowResults] = useState(false)
+  const [isSearchInitialized, setIsSearchInitialized] = useState(false)
+  const [isSearchSubmitted, setIsSearchSubmitted] = useState("");
 
   const contextValue = {
     filterType,
@@ -32,8 +33,10 @@ export const FormStatesContextProvider = ({ children }) => {
     setGravity,
     density,
     setDensity,
-    showResults,
-    setShowResults
+    isSearchInitialized, 
+    setIsSearchInitialized,
+    isSearchSubmitted, 
+    setIsSearchSubmitted,
   };
 
   return (

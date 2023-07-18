@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { useFormStatesContext } from "./FormContext";
 import FilterInput from "../FilterInput/FilterInput";
 import SearchResults from "../SearchResults/SearchResults";
@@ -15,8 +14,21 @@ const Search = () => {
     isSearchInitialized,
     setIsSearchInitialized,
     isSearchSubmitted,
-    setIsSearchSubmitted
+    setIsSearchSubmitted,
+    isFormSubmitted,
+    setIsFormSubmitted
   } = useFormStatesContext();
+
+  const resetForm = () => {
+    setFilterType("");
+    setFilterTitle("Filters");
+    setBodyType("");
+    setMass("");
+    setGravity("");
+    setDensity("");
+    setIsSearchInitialized(false);
+    setIsSearchSubmitted(false);
+  };
 
   const getSearchResults = (event) => {
     event.preventDefault();
@@ -25,8 +37,15 @@ const Search = () => {
       setIsSearchSubmitted(true);
     } else {
       setIsSearchSubmitted(true);
+      setIsSearchInitialized(true);
     }
+  
+    setIsFormSubmitted(true);
   };
+
+  useEffect(() => {
+    if (isFormSubmitted) setIsFormSubmitted(false)
+  }, [isFormSubmitted])
 
   useEffect(() => {
     if (filterType) setFilterTitle(filterType.charAt(0).toUpperCase() + filterType.slice(1));
@@ -52,12 +71,11 @@ const Search = () => {
               </ul>
             </div>
             <FilterInput />
-            <Link style={{ textDecoration: 'none' }} to={`/about`}></Link><button className="btn btn--green" type="submit">
+            <button className="btn btn--green" type="submit">
               Submit
             </button>
           </div>
         </form>
-        { isSearchInitialized && <SearchResults />}
       </div>
   );
 };

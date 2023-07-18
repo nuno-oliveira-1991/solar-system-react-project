@@ -7,17 +7,20 @@ const SearchResults = () => {
   const { 
     allBodies,
     isSearchSubmitted,  
+    isSearchInitialized,
     filterType, 
     bodyType, 
     mass, 
     gravity, 
     density,
     searchResults,
-    setSearchResults
+    setSearchResults,
+    setIsSearchSubmitted,
+    setIsSearchInitialized,
   } = useFormStatesContext()
   
   let bodies = allBodies
-  
+
   useEffect(() => {
     const sunIndex = bodies.findIndex((body) => body.englishName === "Sun");
     if (sunIndex !== -1) {
@@ -52,19 +55,21 @@ const SearchResults = () => {
           return body;
         });
       }
-
+      setIsSearchInitialized(false)
+      setIsSearchSubmitted(false)
       setSearchResults(bodiesThatMatched);
     }
   }, [isSearchSubmitted, mass, density, bodyType, gravity, bodies, filterType]);
 
   return (
     <div className={style["container"]}>
-      {searchResults && searchResults.map((body) => (
-        <div key={body.id} className={style["result-item"]}>
-          <span className={style["identification"]}>{body.englishName}</span>
-          <span className={style["identification"]}>{body.bodyType}</span>
-        </div>
-      ))}
+      {searchResults &&
+        searchResults.map((body) => (
+          <div key={body.id} className={style["result-item"]}>
+            <span className={style["identification"]}>{body.englishName}</span>
+            <span className={style["identification"]}>{body.bodyType}</span>
+          </div>
+        ))}
     </div>
   );
 };

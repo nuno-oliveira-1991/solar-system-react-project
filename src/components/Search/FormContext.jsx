@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useRef } from "react";
 
 const FormStatesContext = createContext();
 
@@ -19,9 +19,25 @@ export const FormStatesContextProvider = ({ children }) => {
   const [mass, setMass] = useState();
   const [gravity, setGravity] = useState("");
   const [density, setDensity] = useState("");
+  const [searchMode, setSearchMode] = useState(false)
   const [isSearchInitialized, setIsSearchInitialized] = useState(false)
   const [isSearchSubmitted, setIsSearchSubmitted] = useState("");
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [searchResults, setSearchResults] = useState("");
+  const [aboutMode, setAboutMode] = useState(false)
+  const formRef = useRef(null);
+
+  const resetForm = () => {
+    setFilterType("");
+    setFilterTitle("Filters");
+    setBodyType("");
+    setMass("");
+    setGravity("");
+    setDensity("");
+    setIsSearchInitialized(false);
+    setIsSearchSubmitted(false);
+  };
+
 
   const contextValue = {
     allBodies, 
@@ -40,12 +56,19 @@ export const FormStatesContextProvider = ({ children }) => {
     setGravity,
     density,
     setDensity,
+    searchMode,
+    setSearchMode,
     isSearchInitialized, 
     setIsSearchInitialized,
     isSearchSubmitted, 
     setIsSearchSubmitted,
+    isFormSubmitted, 
+    setIsFormSubmitted,
     searchResults, 
-    setSearchResults
+    setSearchResults,
+    aboutMode, 
+    setAboutMode,
+    formRef
   };
 
   return (

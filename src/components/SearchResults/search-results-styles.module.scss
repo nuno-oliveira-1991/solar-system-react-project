@@ -1,15 +1,13 @@
 .container {
-  background-color:rgba(165, 164, 164, 0.5);
+  background-color:rgba(165, 164, 164, 0.3);
     color: white;
     height: calc(100vh - 6em);
-    width: 100%;
     padding: 1em 2em;
     right: 0em;
     overflow: scroll;
-    position: absolute;
+    position: relative;
     box-sizing: border-box;
-    z-index: 1;
-    top: 100%;
+    z-index: 0;
 }
 
 .result-item {

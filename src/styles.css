@@ -19,7 +19,7 @@ html, body {
   justify-content: center;
   color: white;
   border: none;
-  background-color: rgb(99, 99, 99); 
+  background-color: rgba(99, 99, 99, 1); 
   width: 8em;
   height: 100%;
   padding: 0;
@@ -28,17 +28,14 @@ html, body {
 }
 
 .btn--green {
-  background-color: #04AA6D;
+  background-color: rgba(4, 170, 109, 1);
 }
 .btn--blue {
-  background-color: #3d5fa8;
+  background-color: rgba(61, 95, 168, 1);
 }
-.btn--red {
-  background-color: #8e3f3f;
+.btn--exit {
+  background-color: rgba(142, 63, 63, 1);
 }
-
-
-
 
 ::-webkit-scrollbar {
   width: 0;

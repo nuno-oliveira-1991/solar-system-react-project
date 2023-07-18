@@ -7,8 +7,14 @@ const Home = () => {
 
   const { 
     setAllBodies,
-    setIsLoading
+    setIsLoading,
+    setSearchMode,
+    isSearchInitialized
   } = useFormStatesContext()
+
+  useEffect(() => {
+    if (!isSearchInitialized) setSearchMode(false)
+  }, [isSearchInitialized])
 
   useEffect(() => {
     fetch("https://api.le-systeme-solaire.net/rest/bodies/")

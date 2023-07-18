@@ -1,8 +1,9 @@
-import { useFormStatesContext } from "./../../../pages/Search/FormContext";
+import { useFormStatesContext } from "../../Search/FormContext";
 
 import style from "./../filter-input-styles.module.scss"
 
-const GravityInput = ({ gravity, setGravity }) => {  
+const GravityInput = () => {  
+  const { gravity, setGravity } = useFormStatesContext()
 
   return (
     <>

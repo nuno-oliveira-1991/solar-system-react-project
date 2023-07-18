@@ -7,12 +7,36 @@ html, body {
 }
 
 #root {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  height: 100%;
   background-color: black;
+  height: 100%;
+  padding: 2em;
+  box-sizing: border-box
 }
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  background-color: rgb(99, 99, 99); 
+  width: 8em;
+  height: 100%;
+  padding: 0;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.btn--green {
+  background-color: #04AA6D;
+}
+.btn--blue {
+  background-color: #3d5fa8;
+}
+.btn--red {
+  background-color: #8e3f3f;
+}
+
 
 
 

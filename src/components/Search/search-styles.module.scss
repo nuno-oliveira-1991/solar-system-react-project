@@ -2,38 +2,25 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
+  width: calc(100% - 12em);
 }
 
 .header {
   display: flex;
-  background-color: lightgray;
+  justify-content: space-between;
   box-sizing: border-box;
   background-color:  rgb(58, 58, 58);
-  top: 0;
   width: 100%;
-}
-
-.filter-menu {
-  background-color: #3d5fa8;
-  color: white;
-  padding: 1em;
-  font-size: 1em;
-  text-align: center;
+  height: 2em;
   position: relative;
-  border: none;
-  width: 30%;
-  box-sizing: border-box;
-  cursor: pointer;
 }
-
 
 .filter-menu-content{ 
-  display:none;
+  display: none;
   box-sizing: border-box;
-  background-color: #f1f1f1;
+  background-color: lightgray;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 100%;
   left: 0;
   margin: 0;
@@ -59,15 +46,3 @@
 }
 
 .filter-menu-content:hover .filter-menu-content {display: block} 
-
-.submit-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 1em;
-  font-size: 1em;
-  text-align: center;
-  border: none;
-  width: 20%;
-  box-sizing: border-box;
-  cursor: pointer;
-}

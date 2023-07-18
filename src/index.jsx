@@ -6,15 +6,18 @@ import {
     Outlet,
     Link
   } from "react-router-dom";
-
+import { FormStatesContextProvider } from "./components/Search/FormContext";
+import NavBar from "./components/NavBar/NavBar";
 import Home from "./pages/Home/Home";
-import Search from './pages/Search/Search';
+import About from "./pages/About/About"
+import SearchResults from './components/SearchResults/SearchResults';
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <>
+          <NavBar />
           <Outlet />
         </>
       ),
@@ -24,8 +27,8 @@ const router = createBrowserRouter([
           element: <Home />
         },
         {
-          path: "/search",
-          element: <Search />
+          path: "/about",
+          element: <About />
         }
       ]
     }
@@ -35,7 +38,7 @@ const router = createBrowserRouter([
   const root = createRoot(rootElement);
   
   root.render(
-    <>
+    <FormStatesContextProvider>
       <RouterProvider router={router} />
-    </>
+    </FormStatesContextProvider>
   );

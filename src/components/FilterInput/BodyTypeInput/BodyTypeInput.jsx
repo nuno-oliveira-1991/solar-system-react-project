@@ -1,9 +1,9 @@
-import { useFormStatesContext } from "./../../../pages/Search/FormContext";
+import { useFormStatesContext } from "../../Search/FormContext";
 
 import style from "./../filter-input-styles.module.scss"
 
-const BodyTypeInput = ({ bodyType, setBodyType }) => {
-  
+const BodyTypeInput = () => {
+  const { bodyType, setBodyType} = useFormStatesContext()
   return (
     <>
       <span className={style["filter-menu"]}>

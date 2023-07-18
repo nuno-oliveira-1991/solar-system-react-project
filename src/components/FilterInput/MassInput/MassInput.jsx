@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react"
-import { useFormStatesContext } from "./../../../pages/Search/FormContext";
+import { useFormStatesContext } from "../../Search/FormContext";
 
 import style from "./../filter-input-styles.module.scss"
 
-const MassInput = ({ mass, setMass }) => {  
+const MassInput = () => {  
   const [massValue, setMassValue] = useState("")
   const [massExponent, setMassExponent] = useState("")
+  const { mass, setMass } = useFormStatesContext()
 
   useEffect(() => {
     const value = parseFloat(massValue);

@@ -1,57 +1,70 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useFormStatesContext } from "./../Search/FormContext";
 import style from "./search-results-styles.module.scss";
 
-const SearchResults = ({ isSearchSubmitted, bodies, filterType, bodyType, mass, gravity, density }) => {
-  const [searchResults, setSearchResults] = useState("");
+const SearchResults = () => {
 
+  const { 
+    allBodies,
+    isSearchSubmitted,  
+    filterType, 
+    bodyType, 
+    mass, 
+    gravity, 
+    density,
+    searchResults,
+    setSearchResults
+  } = useFormStatesContext()
+  
+  let bodies = allBodies
+  
   useEffect(() => {
-    if (isSearchSubmitted) {
-      const updatedBodies = bodies.map((body) => {
-        if (body.englishName === "Sun") {
-          return { ...body, gravity: 274, density: 1.41 };
-        }
-        return body;
-      });
+    const sunIndex = bodies.findIndex((body) => body.englishName === "Sun");
+    if (sunIndex !== -1) {
+      bodies[sunIndex].gravity = 274;
+      bodies[sunIndex].density = 1.41;
+    }
 
+    if (isSearchSubmitted) {
       let bodiesThatMatched;
 
       if (filterType === "bodyType") {
-        bodiesThatMatched = updatedBodies.filter((body) => body.bodyType === bodyType);
+        bodiesThatMatched = bodies.filter((body) => body.bodyType === bodyType);
       } else if (filterType === "mass") {
-        bodiesThatMatched = updatedBodies.filter((body) => {
+        bodiesThatMatched = bodies.filter((body) => {
           if (body.mass?.massValue && body.mass?.massExponent) {
             return body.mass.massValue * Math.pow(10, body.mass.massExponent) >= mass;
           }
           return false;
         });
       } else if (filterType === "gravity") {
-        bodiesThatMatched = updatedBodies.filter((body) => {
-          if (body.gravity) {
-            return body.gravity >= gravity;
+        bodiesThatMatched = bodies.map((body) => {
+          if (body.englishName === "sun") {
+            return { ...body, gravity: 274 };
           }
-          return false;
+          return body;
         });
       } else if (filterType === "density") {
-        bodiesThatMatched = updatedBodies.filter((body) => {
-          if (body.density) {
-            return body.density >= density;
+        bodiesThatMatched = bodies.map((body) => {
+          if (body.englishName === "sun") {
+            return { ...body, density: 1.41 };
           }
-          return false;
+          return body;
         });
       }
+
       setSearchResults(bodiesThatMatched);
     }
   }, [isSearchSubmitted, mass, density, bodyType, gravity, bodies, filterType]);
 
   return (
     <div className={style["container"]}>
-      {searchResults &&
-        searchResults.map((body) => (
-          <div key={body.id} className={style["result-item"]}>
-            <span className={style["identification"]}>{body.englishName}</span>
-            <span className={style["identification"]}>{body.bodyType}</span>
-          </div>
-        ))}
+      {searchResults && searchResults.map((body) => (
+        <div key={body.id} className={style["result-item"]}>
+          <span className={style["identification"]}>{body.englishName}</span>
+          <span className={style["identification"]}>{body.bodyType}</span>
+        </div>
+      ))}
     </div>
   );
 };

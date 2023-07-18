@@ -19,4 +19,9 @@
 .identification {
   position: relative;
   width: 50%;
+}
+
+.result-item:hover .identification {
+  color: gray;
+  cursor: pointer;
 }/*# sourceMappingURL=search-results-styles.module.css.map */

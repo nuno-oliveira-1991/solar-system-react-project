@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { FormStatesContextProvider } from "./../Search/FormContext";
-import Search from "./../Search/Search"
+import { useEffect } from "react";
+import { useFormStatesContext } from "./../../components/Search/FormContext";
 import SystemModel from "./../../components/SystemModel/SystemModel"
-
-import style from "./home-styles.module.scss"
-
+import style from "./home-styles.module.scss";
 
 const Home = () => {
-  const [allBodies, setAllBodies] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
+
+  const { 
+    setAllBodies,
+    setIsLoading
+  } = useFormStatesContext()
 
   useEffect(() => {
     fetch("https://api.le-systeme-solaire.net/rest/bodies/")
@@ -21,20 +21,9 @@ const Home = () => {
   }, [])
 
   return (
-
     <div className={style["container"]}>
-      <div className={style["search-panel"]}>
-        {isLoading == false && 
-          <FormStatesContextProvider>
-            <Search bodies={allBodies}/>
-          </FormStatesContextProvider>
-        }
-      </div>
-      <div className={style["model-panel"]}>
-        <SystemModel />
-      </div>
+      <SystemModel />
     </div>
-    
   )
 }
 

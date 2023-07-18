@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 const FormStatesContext = createContext();
 
@@ -11,6 +11,8 @@ export const useFormStatesContext = () => {
 };
 
 export const FormStatesContextProvider = ({ children }) => {
+  const [allBodies, setAllBodies] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
   const [filterType, setFilterType] = useState(undefined);
   const [filterTitle, setFilterTitle] = useState("Filters");
   const [bodyType, setBodyType] = useState(undefined);
@@ -19,8 +21,13 @@ export const FormStatesContextProvider = ({ children }) => {
   const [density, setDensity] = useState("");
   const [isSearchInitialized, setIsSearchInitialized] = useState(false)
   const [isSearchSubmitted, setIsSearchSubmitted] = useState("");
+  const [searchResults, setSearchResults] = useState("");
 
   const contextValue = {
+    allBodies, 
+    setAllBodies,
+    isLoading, 
+    setIsLoading,
     filterType,
     setFilterType,
     filterTitle,
@@ -37,6 +44,8 @@ export const FormStatesContextProvider = ({ children }) => {
     setIsSearchInitialized,
     isSearchSubmitted, 
     setIsSearchSubmitted,
+    searchResults, 
+    setSearchResults
   };
 
   return (

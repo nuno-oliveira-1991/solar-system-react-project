@@ -1,11 +1,15 @@
 .container {
-  background-color: #a5a4a4;
-  color: white;
-  height: 100%;
-  width: 100%;
-  padding: 1em;
-  box-sizing: border-box;
-  overflow: scroll;
+  background-color:rgba(165, 164, 164, 0.5);
+    color: white;
+    height: calc(100vh - 6em);
+    width: 100%;
+    padding: 1em 2em;
+    right: 0em;
+    overflow: scroll;
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 1;
+    top: 100%;
 }
 
 .result-item {
@@ -20,4 +24,9 @@
 .identification{
   position: relative;
   width:50%;
+}
+
+.result-item:hover .identification {
+  color: gray;
+  cursor: pointer;
 }

@@ -4,9 +4,15 @@ import { useFormStatesContext } from "../../Search/FormContext";
 import style from "./../filter-input-styles.module.scss"
 
 const MassInput = () => {  
-  const [massValue, setMassValue] = useState("")
-  const [massExponent, setMassExponent] = useState("")
-  const { mass, setMass } = useFormStatesContext()
+  const {
+    massExponent,
+    setMassExponent,
+    massValue,
+    setMassValue,
+    mass, 
+    setMass
+  
+  } = useFormStatesContext()
 
   useEffect(() => {
     const value = parseFloat(massValue);

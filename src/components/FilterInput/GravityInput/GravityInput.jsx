@@ -1,5 +1,4 @@
 import { useFormStatesContext } from "../../Search/FormContext";
-
 import style from "./../filter-input-styles.module.scss"
 
 const GravityInput = () => {  
@@ -8,7 +7,7 @@ const GravityInput = () => {
   return (
     <>
       <span className={style["filter-menu"]}>
-        {gravity === "" && <span>Choose Gravity</span>}
+        {!gravity && <span>Choose Gravity</span>}
         {gravity && <span>at least {gravity} m/s²</span>}
       </span>
       <ul className={style["filter-menu-content"]}>

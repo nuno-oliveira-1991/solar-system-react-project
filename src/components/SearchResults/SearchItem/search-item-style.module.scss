@@ -1,0 +1,18 @@
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+
+.identification{
+  position: relative;
+  width:50%;
+}
+
+.result-item:hover .identification {
+  color: gray;
+  cursor: pointer;
+}

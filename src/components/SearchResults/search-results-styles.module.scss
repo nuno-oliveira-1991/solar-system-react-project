@@ -1,30 +1,14 @@
 .container {
   background-color:rgba(165, 164, 164, 0.3);
-    color: white;
-    height: calc(100vh - 6em);
-    padding: 1em 2em;
-    right: 0em;
-    overflow: scroll;
-    position: relative;
-    box-sizing: border-box;
-    z-index: 0;
-}
+  color: white;
+  box-sizing: border-box;
+  overflow: scroll;
+  position: absolute;
+  z-index: 1;
+  top: 4em;
+  height: calc(100vh - 6em);
+  width: calc(100% - 4em);
+  padding: 2em;
 
-.result-item {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  font-size: 0.9em;
-  margin-bottom: 0.5em;
-}
-
-
-.identification{
-  position: relative;
-  width:50%;
-}
-
-.result-item:hover .identification {
-  color: gray;
-  cursor: pointer;
+  a {color: white;}
 }

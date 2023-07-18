@@ -1,5 +1,4 @@
 import { useFormStatesContext } from "../../Search/FormContext";
-
 import style from "./../filter-input-styles.module.scss"
 
 const BodyTypeInput = () => {

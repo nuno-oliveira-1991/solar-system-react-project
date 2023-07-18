@@ -1,16 +1,16 @@
 .container {
   display: flex;
   align-items: center;
+  position: relative;
   background-color: rgb(58, 58, 58);
   height: 100%;
   width: calc(100% - 12em);
-  position: relative;
+  padding: 0 0.5em;
 }
 
 .filter-menu {
   background-color: none;
   color: white;
-  padding: 1em;
   font-size: 1em;
   text-align: center;
   border: none;
@@ -41,34 +41,28 @@
     display: flex; 
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: left;
     color: black;
     padding: 1em 2em;
-    text-decoration: none;
-    box-sizing: border-box;
     margin: 0;
     width: 100%;
-    text-align: left;
   }
 }
 
-.container:hover .filter-menu-content {
-  display: block;
-}
-
-.filter-menu-content li:hover {
-  background-color: #ddd
-}
-
-.filter-menu-content:hover .filter-menu-content {
-  display: block
-} 
-
 .input {
-  width: 60%;
   border: none;
+  width: 60%;
   padding: 0.5em;
   margin: 0 0.5em;
 }
+
+.container:hover .filter-menu-content {display: block}
+
+.filter-menu-content li:hover {background-color: #ddd}
+
+.filter-menu-content:hover .filter-menu-content {display: block} 
 
 @keyframes slideDown {
   0% { height: 0 }

@@ -1,16 +1,17 @@
-import React from 'react';
+import React from "react";
 import { createRoot } from "react-dom/client";
 import {
     createBrowserRouter,
     RouterProvider,
-    Outlet,
-    Link
+    Outlet
   } from "react-router-dom";
 import { FormStatesContextProvider } from "./components/Search/FormContext";
 import NavBar from "./components/NavBar/NavBar";
+import SystemModel from "./components/SystemModel/SystemModel"
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About"
-import SearchResults from './components/SearchResults/SearchResults';
+import SearchResults from "./components/SearchResults/SearchResults";
+import BodyDetail from "./pages/BodyDetail/BodyDetail"
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
         <>
           <NavBar />
           <Outlet />
+          <SystemModel />
         </>
       ),
       children: [
@@ -32,7 +34,17 @@ const router = createBrowserRouter([
         },
         {
           path: "/search",
-          element: <SearchResults />
+          element: <Outlet />,
+          children: [
+            {
+              path: "/search",
+              element: <SearchResults />
+            },
+            {
+              path: "/search/:englishName",
+              element: <BodyDetail />
+            }
+          ]
         }
       ]
     }

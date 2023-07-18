@@ -1,5 +1,4 @@
 import { useFormStatesContext } from "../../Search/FormContext";
-
 import style from "./../filter-input-styles.module.scss"
 
 const DensityInput = () => {  
@@ -8,7 +7,7 @@ const DensityInput = () => {
   return (
     <>
       <span className={style["filter-menu"]}>
-        {density === "" && <span>Choose Density</span>}
+        {!density && <span>Choose Density</span>}
         {density && <span>at least {density} g/cm³</span>}
       </span>
       <ul className={style["filter-menu-content"]}>

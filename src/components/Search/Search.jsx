@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useFormStatesContext } from "./FormContext";
 import FilterInput from "../FilterInput/FilterInput";
-import SearchResults from "../SearchResults/SearchResults";
 import style from "./search-styles.module.scss";
 
 const Search = () => {
@@ -11,49 +11,45 @@ const Search = () => {
     setFilterType,
     filterTitle,
     setFilterTitle,
+    setBodyType,
+    setMassExponent,
+    setMassValue,
+    setMass,
+    setGravity,
+    setDensity,
     isSearchInitialized,
     setIsSearchInitialized,
     isSearchSubmitted,
     setIsSearchSubmitted,
-    isFormSubmitted,
-    setIsFormSubmitted
+    detailMode,
+    setDetailMode,
   } = useFormStatesContext();
-
-  const resetForm = () => {
-    setFilterType("");
-    setFilterTitle("Filters");
-    setBodyType("");
-    setMass("");
-    setGravity("");
-    setDensity("");
-    setIsSearchInitialized(false);
-    setIsSearchSubmitted(false);
-  };
 
   const getSearchResults = (event) => {
     event.preventDefault();
+    setDetailMode(false)
     if (!isSearchInitialized) {
       setIsSearchInitialized(true);
       setIsSearchSubmitted(true);
     } else {
-      setIsSearchSubmitted(true);
-      setIsSearchInitialized(true);
+      setIsSearchSubmitted(true)
     }
-  
-    setIsFormSubmitted(true);
   };
 
   useEffect(() => {
-    if (isFormSubmitted) setIsFormSubmitted(false)
-  }, [isFormSubmitted])
-
-  useEffect(() => {
     if (filterType) setFilterTitle(filterType.charAt(0).toUpperCase() + filterType.slice(1));
+    setBodyType(undefined)
+    setMassExponent(undefined)
+    setMassValue(undefined)
+    setMass(undefined)
+    setGravity(undefined)
+    setDensity(undefined)
   }, [filterType]);
 
   useEffect(() => {
     if (isSearchSubmitted) {
       setIsSearchSubmitted(false);
+      if (detailMode) setDetailMode(false)
     }
   }, [isSearchSubmitted]);
 
@@ -61,7 +57,7 @@ const Search = () => {
       <div className={style["container"]}>
         <form onSubmit={getSearchResults}>
           <div className={style["header"]}>
-            <div className={`${style["filter-menu"]} ${"btn btn--blue"}`}>
+            <button className={`${style["filter-menu"]} ${"btn btn--blue"}`}>
               {filterTitle}
               <ul className={style["filter-menu-content"]}>
                 <li onClick={() => setFilterType("bodyType")}>Body Type</li>
@@ -69,11 +65,15 @@ const Search = () => {
                 <li onClick={() => setFilterType("gravity")}>Gravity</li>
                 <li onClick={() => setFilterType("density")}>Density</li>
               </ul>
-            </div>
-            <FilterInput />
-            <button className="btn btn--green" type="submit">
-              Submit
             </button>
+            <FilterInput />
+            { !detailMode && <button className="btn btn--green" type="submit">Submit</button>}
+            { detailMode && 
+              <Link 
+                style={{ textDecoration: 'none', height: '100%' }} 
+                to={"/search"}>
+                  <button className="btn btn--green" type="submit">Submit</button>
+              </Link>}
           </div>
         </form>
       </div>

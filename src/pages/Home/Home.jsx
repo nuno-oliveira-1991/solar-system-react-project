@@ -32,10 +32,10 @@ const Home = () => {
         let name = body.englishName;
         let nameLow = name.toLowerCase();
   
-        if (body.englishName === "Moon") body.imageURL = `./../../assets/images/moon.png`;
+        if (body.englishName === "Moon") body.imageURL = `src/assets/images/moon.png`;
         else if (body.bodyType === "Moon" && body.englishName !== "Moon") body.imageURL = `./../../assets/images/ganimedes-moon.png`;
-        else if (body.bodyType === "asteroid")  body.imageURL = `./../../assets/images/asteroid.png`
-        else { body.imageURL = `./../../assets/images/${nameLow}.png`}
+        else if (body.bodyType === "asteroid")  body.imageURL = `src/assets/images/asteroid.png`
+        else { body.imageURL = `src/assets/images/${nameLow}.png`}
         return body
       });
     }

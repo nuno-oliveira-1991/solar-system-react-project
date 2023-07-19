@@ -61,6 +61,7 @@ const SearchResults = () => {
       {searchMode && searchResults &&
         searchResults.map((body) => ( 
           <SearchItem 
+          key={body.id}
             bodyType={body.bodyType} 
             bodyName={body.englishName}
             bodyId={body.id}

@@ -1,60 +1,33 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
-import {
-    createBrowserRouter,
-    RouterProvider,
-    Outlet
-  } from "react-router-dom";
+import { createRoot } from "react-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { FormStatesContextProvider } from "./components/Search/FormContext";
 import NavBar from "./components/NavBar/NavBar";
-import SystemModel from "./components/SystemModel/SystemModel"
+import SystemModel from "./components/SystemModel/SystemModel";
 import Home from "./pages/Home/Home";
-import About from "./pages/About/About"
+import About from "./pages/About/About";
 import SearchResults from "./components/SearchResults/SearchResults";
-import BodyDetail from "./pages/BodyDetail/BodyDetail"
+import BodyDetail from "./pages/BodyDetail/BodyDetail";
 
-const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <>
-          <NavBar />
-          <Outlet />
-          <SystemModel />
-        </>
-      ),
-      children: [
-        {
-          path: "/",
-          element: <Home />
-        },
-        {
-          path: "/about",
-          element: <About />
-        },
-        {
-          path: "/search",
-          element: <Outlet />,
-          children: [
-            {
-              path: "/search",
-              element: <SearchResults />
-            },
-            {
-              path: "/search/:englishName",
-              element: <BodyDetail />
-            }
-          ]
-        }
-      ]
-    }
-  ]);
-  
-  const rootElement = document.getElementById("root");
-  const root = createRoot(rootElement);
-  
-  root.render(
+const App = () => {
+  return (
     <FormStatesContextProvider>
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/search" element={<Outlet />}>
+            <Route index element={<SearchResults />} />
+            <Route path=":englishName" element={<BodyDetail />} />
+          </Route>
+        </Routes>
+        <SystemModel />
+      </BrowserRouter>
     </FormStatesContextProvider>
   );
+};
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+root.render(<App />);

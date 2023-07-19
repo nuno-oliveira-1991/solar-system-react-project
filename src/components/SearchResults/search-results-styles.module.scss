@@ -1,5 +1,5 @@
 .container {
-  background-color:rgba(165, 164, 164, 0.3);
+  background-color:rgba(0, 0, 0, 0.4);
   color: white;
   box-sizing: border-box;
   overflow: scroll;
@@ -11,4 +11,17 @@
   padding: 2em;
 
   a {color: white;}
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.9em;
+  margin-bottom: 2em;
+
+  span {
+    width: 100%;
+    font-weight: bold;
+  }
 }

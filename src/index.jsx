@@ -1,5 +1,5 @@
 import React from "react";
-import { createRoot } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { FormStatesContextProvider } from "./components/Search/FormContext";
 import NavBar from "./components/NavBar/NavBar";

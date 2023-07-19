@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useFormStatesContext } from "./../../components/Search/FormContext";
 import style from "./home-styles.module.scss";
+import ganymedesMoonImage from "./../../assets/images/ganymede.png";
+import asteroidImage from "./../../assets/images/asteroid.png";
 
 const Home = () => {
   const { 
@@ -25,18 +27,21 @@ const Home = () => {
         setIsLoading(false)
       });
   }, [])
-
+  console.log(allBodies)
   useEffect(() => {
     if (allBodies) {
-      allBodies.map((body) => {
-        let name = body.englishName;
-        let nameLow = name.toLowerCase();
-  
-        if (body.englishName === "Moon") body.imageURL = `src/assets/images/moon.png`;
-        else if (body.bodyType === "Moon" && body.englishName !== "Moon") body.imageURL = `./../../assets/images/ganimedes-moon.png`;
-        else if (body.bodyType === "asteroid")  body.imageURL = `src/assets/images/asteroid.png`
-        else { body.imageURL = `src/assets/images/${nameLow}.png`}
-        return body
+      allBodies.map(async (body) => {
+        let name = body.id;
+        name.toLowerCase();
+        
+        if (body.bodyType === "Moon" && body.englishName !== "Moon")
+          body.imageURL = ganymedesMoonImage;
+        else if (body.bodyType === "Asteroid") body.imageURL = asteroidImage;
+        else {
+          const dynamicImage = await import(`./../../assets/images/${name}.png`);
+          body.imageURL = dynamicImage.default;
+        }
+        return body;
       });
     }
   }, [allBodies]);

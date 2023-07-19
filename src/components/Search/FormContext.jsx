@@ -24,6 +24,7 @@ export const FormStatesContextProvider = ({ children }) => {
   const [searchMode, setSearchMode] = useState(false)
   const [isSearchInitialized, setIsSearchInitialized] = useState(false)
   const [isSearchSubmitted, setIsSearchSubmitted] = useState(undefined);
+  const [firstSearch, setFirstSearch] = useState(true)
   const [searchResults, setSearchResults] = useState(undefined);
   const [aboutMode, setAboutMode] = useState(false)
   const [detailMode, setDetailMode] = useState(false)
@@ -55,6 +56,8 @@ export const FormStatesContextProvider = ({ children }) => {
     setIsSearchInitialized,
     isSearchSubmitted, 
     setIsSearchSubmitted,
+    firstSearch,
+    setFirstSearch,
     searchResults, 
     setSearchResults,
     aboutMode, 

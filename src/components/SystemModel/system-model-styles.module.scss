@@ -175,6 +175,11 @@
   100% {transform: rotate(360deg);}
 }
 
-@media only screen and (max-width: 600px) {
-  
+@media screen and (max-width: 1000px) {
+
+  .background {
+    overflow: hidden;
+    left: -2em;
+    width: calc(100% + 4em)
+  }
 }

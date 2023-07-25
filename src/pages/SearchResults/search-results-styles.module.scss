@@ -25,3 +25,20 @@
     font-weight: bold;
   }
 }
+
+@media screen and (max-width: 768px) {
+
+  .container {
+    top: 6em;
+    box-sizing: border-box;
+    padding: 2em 0;
+  }
+
+  .header {
+    margin-top: 2em;
+  }
+
+  .attributeTitle {
+    display: none;
+  }
+}

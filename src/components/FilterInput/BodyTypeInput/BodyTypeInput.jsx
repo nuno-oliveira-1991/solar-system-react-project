@@ -1,4 +1,4 @@
-import { useFormStatesContext } from "../../Search/FormContext";
+import { useFormStatesContext } from "../../../contexts/FormContext";
 import style from "./../filter-input-styles.module.scss"
 
 const BodyTypeInput = () => {
@@ -6,7 +6,7 @@ const BodyTypeInput = () => {
   return (
     <>
       <span className={style["filter-menu"]}>
-        {!bodyType && <span>Choose body a type</span>}
+        {!bodyType && <span>Choose a body type</span>}
         {bodyType && <span>{bodyType}</span>}
       </span>
       <ul className={style["filter-menu-content"]}>

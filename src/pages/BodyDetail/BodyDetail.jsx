@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useFormStatesContext } from "./../../components/Search/FormContext";
+import { useFormStatesContext } from "./../../contexts/FormContext";
 import style from "./body-detail-style.module.scss";
 
 const BodyDetail = () => {

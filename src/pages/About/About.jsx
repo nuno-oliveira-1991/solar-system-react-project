@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import style from "./about-style.module.scss"
-import { useFormStatesContext } from "../../components/Search/FormContext"
+import { useFormStatesContext } from "../../contexts/FormContext"
 
 const About = () => {
   const{setAboutMode} = useFormStatesContext()

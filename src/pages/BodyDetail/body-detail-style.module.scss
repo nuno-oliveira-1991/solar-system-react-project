@@ -79,3 +79,44 @@
   span {max-width: 10em}
 }
 
+@media screen and (max-width: 1000px) {
+
+  .container {
+    padding: 1em 0;
+  }
+
+  .info {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .image {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    width: 100%;
+    opacity: 80%;
+
+    img {
+      width: 100%;
+      padding: 2em;
+    }
+  }
+
+  .description {
+    font-size: 0.8em;
+    margin: 0;
+    width: 100%;
+    
+    h1 {
+      margin-bottom: 1em;
+    }
+  }
+
+
+  .go-back-button {
+    position: absolute;
+    top: 0.2em;
+    z-index: 1;
+  }
+}

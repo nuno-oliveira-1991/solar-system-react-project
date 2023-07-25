@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useFormStatesContext } from "./../Search/FormContext";
+import { useFormStatesContext } from "./../../contexts/FormContext";
 import style from "./navbar-style.module.scss"
 import Search from "../Search/Search";
 
@@ -54,21 +54,21 @@ const NavBar = () => {
     <div className={style["container"]}>
       {!searchMode && 
         <Link style={{ textDecoration: 'none', height: '100%' }} to={`/search`}>
-          <span className="btn" onClick={goToSearch}>Search</span>
+          <button className="btn" onClick={goToSearch}>Search</button>
         </Link>}
       {searchMode && 
         <Link style={{ textDecoration: 'none', height: '100%' }} to={`/`}>
-          <span className="btn" onClick={goToHome}>Home</span>
+          <button className="btn" onClick={goToHome}>Home</button>
         </Link>}
       {searchMode && <Search onClick={goToSearch} />}
       {!aboutMode && 
         <Link style={{ textDecoration: 'none', height: '100%' }} to={`/about`}>
-          <span className="btn"onClick={goToAbout}>About</span>
+          <button className="btn"onClick={goToAbout}>About</button>
         </Link>}
       {aboutMode && 
-      <Link style={{ textDecoration: 'none', height: '100%' }} to={`/`}>
-        <span className="btn" onClick={goToHome}>Home</span>
-      </Link>}
+        <Link style={{ textDecoration: 'none', height: '100%' }} to={`/`}>
+          <button className="btn" onClick={goToHome}>Home</button>
+        </Link>}
     </div>
   )
 }

@@ -2,16 +2,13 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: -webkit-fill-available;
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
   background-color: black;
-  height: 100%;
+  height: -webkit-fill-available;
   padding: 2em;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
@@ -47,5 +44,6 @@ html, body {
   background: transparent;  
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
+  .btn {width: 100%}
 }

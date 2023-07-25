@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useFormStatesContext } from "./FormContext";
+import { useFormStatesContext } from "./../../contexts/FormContext";
 import FilterInput from "../FilterInput/FilterInput";
 import style from "./search-styles.module.scss";
 
@@ -23,6 +23,8 @@ const Search = () => {
     setIsSearchSubmitted,
     detailMode,
     setDetailMode,
+    isSubMenuOpen,
+    setIsSubMenuOpen
   } = useFormStatesContext();
 
   const getSearchResults = (event) => {
@@ -34,6 +36,14 @@ const Search = () => {
     } else {
       setIsSearchSubmitted(true)
     }
+  };
+
+  // 
+  const handleFilterMenuClick = () => {
+    if (!isSubMenuOpen) setIsSubMenuOpen(true);
+  };
+  const handleListItemClick = () => {
+    if (isSubMenuOpen) setIsSubMenuOpen(false);
   };
 
   useEffect(() => {
@@ -57,16 +67,16 @@ const Search = () => {
       <div className={style["container"]}>
         <form onSubmit={getSearchResults}>
           <div className={style["header"]}>
-            <button className={`${style["filter-menu"]} ${"btn btn--blue"}`}>
+            <button className={`${style["filter-menu"]} ${"btn btn--blue"}`} onClick={handleFilterMenuClick}>
               {filterTitle}
-              <ul className={style["filter-menu-content"]}>
-                <li onClick={() => setFilterType("bodyType")}>Body Type</li>
-                <li onClick={() => setFilterType("mass")}>Mass</li>
-                <li onClick={() => setFilterType("gravity")}>Gravity</li>
-                <li onClick={() => setFilterType("density")}>Density</li>
-              </ul>
+              {isSubMenuOpen && <ul className={style["filter-menu-content"]}>
+                <li onClick={() => {setFilterType("bodyType"); handleListItemClick()}}>Body Type</li>
+                <li onClick={() => {setFilterType("mass"); handleListItemClick()}}>Mass</li>
+                <li onClick={() => {setFilterType("gravity"); handleListItemClick()}}>Gravity</li>
+                <li onClick={() => {setFilterType("density"); handleListItemClick()}}>Density</li>
+              </ul>}
             </button>
-            <FilterInput />
+            {filterType && <FilterInput />}
             { !detailMode && <button className="btn btn--green" type="submit">Submit</button>}
             { detailMode && 
               <Link 

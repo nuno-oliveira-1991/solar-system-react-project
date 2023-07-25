@@ -43,3 +43,12 @@
 .filter-menu-content li:hover {background-color: #ddd}
 
 .filter-menu-content:hover .filter-menu-content {display: block} 
+
+@media screen and (max-width: 1000px) {
+
+  .container {
+    position: absolute;
+    top: 100%;
+    width: 100%
+  }
+}

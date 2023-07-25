@@ -28,6 +28,7 @@ export const FormStatesContextProvider = ({ children }) => {
   const [searchResults, setSearchResults] = useState(undefined);
   const [aboutMode, setAboutMode] = useState(false)
   const [detailMode, setDetailMode] = useState(false)
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
   const contextValue = {
     allBodies, 
@@ -63,7 +64,9 @@ export const FormStatesContextProvider = ({ children }) => {
     aboutMode, 
     setAboutMode,
     detailMode,
-    setDetailMode
+    setDetailMode, 
+    isSubMenuOpen, 
+    setIsSubMenuOpen
   };
 
   return (

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useFormStatesContext } from "./../../components/Search/FormContext";
+import { useFormStatesContext } from "../../contexts/FormContext";
 import BodyTypeInput from "./BodyTypeInput/BodyTypeInput";
 import MassInput from "./MassInput/MassInput";
 import GravityInput from  "./GravityInput/GravityInput";

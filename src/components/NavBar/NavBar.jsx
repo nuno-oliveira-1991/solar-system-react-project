@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useFormStatesContext } from "./../../contexts/FormContext";
 import style from "./navbar-style.module.scss"
-import Search from "../Search/Search";
+import SearchBar from "../SearchBar/SearchBar";
 
 const NavBar = () => {
   const {
@@ -60,7 +60,7 @@ const NavBar = () => {
         <Link style={{ textDecoration: 'none', height: '100%' }} to={`/`}>
           <button className="btn" onClick={goToHome}>Home</button>
         </Link>}
-      {searchMode && <Search onClick={goToSearch} />}
+      {searchMode && <SearchBar onClick={goToSearch} />}
       {!aboutMode && 
         <Link style={{ textDecoration: 'none', height: '100%' }} to={`/about`}>
           <button className="btn"onClick={goToAbout}>About</button>

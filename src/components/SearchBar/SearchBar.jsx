@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useFormStatesContext } from "./../../contexts/FormContext";
+import { useFormStatesContext } from "../../contexts/FormContext";
 import FilterInput from "../FilterInput/FilterInput";
 import style from "./search-styles.module.scss";
 
-const Search = () => {
+const SearchBar = () => {
 
   const {
     filterType,
@@ -90,4 +90,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchBar;

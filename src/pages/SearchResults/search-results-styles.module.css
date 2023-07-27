@@ -1,27 +1,41 @@
 .container {
-  background-color: #a5a4a4;
+  background-color: rgba(0, 0, 0, 0.4);
   color: white;
-  height: 100%;
-  width: 100%;
-  padding: 1em;
   box-sizing: border-box;
   overflow: scroll;
+  position: absolute;
+  z-index: 1;
+  top: 4em;
+  height: calc(100vh - 6em);
+  width: calc(100% - 4em);
+  padding: 2em;
+}
+.container a {
+  color: white;
 }
 
-.result-item {
+.header {
   display: flex;
   justify-content: space-between;
   width: 100%;
   font-size: 0.9em;
-  margin-bottom: 0.5em;
+  margin-bottom: 2em;
+}
+.header span {
+  width: 100%;
+  font-weight: bold;
 }
 
-.identification {
-  position: relative;
-  width: 50%;
-}
-
-.result-item:hover .identification {
-  color: gray;
-  cursor: pointer;
+@media screen and (max-width: 768px) {
+  .container {
+    top: 6em;
+    box-sizing: border-box;
+    padding: 2em 0;
+  }
+  .header {
+    margin-top: 2em;
+  }
+  .attributeTitle {
+    display: none;
+  }
 }/*# sourceMappingURL=search-results-styles.module.css.map */

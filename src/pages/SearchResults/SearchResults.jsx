@@ -46,7 +46,7 @@ const SearchResults = () => {
         
         if (body.bodyType === "Moon" && body.englishName !== "Moon") body.imageURL = ganymedesMoonImage
         else if (body.bodyType === "Asteroid") body.imageURL = asteroidImage
-        else if (body.id === "eris") body.imageURL = erisImage
+        else if (body.id === "eris") body.imageURL = erisImage  // test para o bug do netlify
         else {
           const dynamicImage = await import(`./../../assets/images/${name}.png`)
           body.imageURL = dynamicImage.default

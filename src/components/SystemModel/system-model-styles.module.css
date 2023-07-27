@@ -5,12 +5,16 @@
   align-items: center;
   position: relative;
   width: 100%;
+  height: 100%;
 }
 
 .solar-system {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: -1em;
+  transform: scale(0.8);
 }
 
 .sun {
@@ -26,7 +30,7 @@
   margin: auto;
   border: 0;
   border-radius: 100%;
-  z-index: 1;
+  z-index: 0;
 }
 
 /* ---------- Planets ---------- */
@@ -166,5 +170,12 @@
 @keyframes spin-right {
   100% {
     transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 1000px) {
+  .background {
+    overflow: hidden;
+    left: -2em;
+    width: calc(100% + 4em);
   }
 }/*# sourceMappingURL=system-model-styles.module.css.map */

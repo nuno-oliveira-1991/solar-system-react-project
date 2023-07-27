@@ -1,10 +1,114 @@
 .container {
-  width: 40%;
-  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow: scroll;
+  position: absolute;
+  z-index: 1;
+  top: 4em;
+  height: calc(100vh - 6em);
+  width: calc(100% - 4em);
+  padding: 2em;
+}
+
+.go-back-button {
+  border: none;
+  background: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0.5em;
+  z-index: 3;
+  width: 2em;
+  font-size: 2em;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 1.5em;
 }
 
 .image {
-  background-color: violet;
-  opacity: 60%;
-  width: 100%;
+  opacity: 80%;
+  width: 40%;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2em;
+}
+.description h1 {
+  margin: 0 0 1em;
+}
+.description div {
+  display: flex;
+}
+.description p {
+  margin: 1em 0;
+}
+
+.properties-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: right;
+  margin-right: 4em;
+  font-weight: bold;
+  line-height: 2em;
+  height: 100%;
+}
+
+.values-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  line-height: 2em;
+  height: 100%;
+}
+.values-column span {
+  max-width: 10em;
+}
+
+@media screen and (max-width: 1060px) {
+  .container {
+    padding: 1em 0;
+  }
+  .info {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .image {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    box-sizing: border-box;
+    width: 100%;
+    opacity: 80%;
+  }
+  .image img {
+    width: calc(100% - 4em);
+    padding: 2em;
+  }
+  .description {
+    font-size: 0.8em;
+    margin: 0;
+  }
+  .description h1 {
+    margin-bottom: 1em;
+  }
+  .go-back-button {
+    position: absolute;
+    top: 0.2em;
+    z-index: 1;
+  }
 }/*# sourceMappingURL=body-detail-style.module.css.map */

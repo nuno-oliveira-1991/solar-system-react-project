@@ -1,0 +1,30 @@
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+.identification {
+  position: relative;
+  width: 50%;
+  font-style: italic;
+}
+
+.attribute {
+  position: relative;
+  width: 50%;
+  font-style: italic;
+}
+
+.result-item:hover .identification {
+  color: gray;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .attribute {
+    display: none;
+  }
+}/*# sourceMappingURL=search-item-style.module.css.map */

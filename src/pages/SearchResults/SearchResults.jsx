@@ -43,10 +43,10 @@ const SearchResults = () => {
       allBodies.map(async (body) => {
         let name = body.id
         name.toLowerCase()
-        if (body.id === "eris") body.imageURL = erisImage
-        if (body.bodyType === "Moon" && body.englishName !== "Moon")
-          body.imageURL = ganymedesMoonImage;
-        else if (body.bodyType === "Asteroid") body.imageURL = asteroidImage;
+        
+        if (body.bodyType === "Moon" && body.englishName !== "Moon") body.imageURL = ganymedesMoonImage
+        else if (body.bodyType === "Asteroid") body.imageURL = asteroidImage
+        else if (body.id === "eris") body.imageURL = erisImage
         else {
           const dynamicImage = await import(`./../../assets/images/${name}.png`)
           body.imageURL = dynamicImage.default

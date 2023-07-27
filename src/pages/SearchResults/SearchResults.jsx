@@ -3,7 +3,6 @@ import { useFormStatesContext } from "./../../contexts/FormContext"
 import SearchItem from "./SearchItem/SearchItem"
 import style from "./search-results-styles.module.scss"
 import ceresImage from "./../../assets/images/ceres.png"
-import erisImage from "./../../assets/images/eris.png" // test para o bug do netlify
 import ganymedesMoonImage from "./../../assets/images/ganymede.png"
 import asteroidImage from "./../../assets/images/asteroid.png"
 
@@ -46,7 +45,6 @@ const SearchResults = () => {
         
         if (body.bodyType === "Moon" && body.englishName !== "Moon") body.imageURL = ganymedesMoonImage
         else if (body.bodyType === "Asteroid") body.imageURL = asteroidImage
-        else if (body.id === "eris") body.imageURL = erisImage  // test para o bug do netlify
         else {
           const dynamicImage = await import(`./../../assets/images/${name}.png`)
           body.imageURL = dynamicImage.default

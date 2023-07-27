@@ -61,14 +61,23 @@ const SearchResults = () => {
       let bodies = allBodies
       const sunIndex = bodies.findIndex((body) => body.englishName === "Sun")
       const ceresIndex = bodies.findIndex((body) => body.id === "ceres")
+      const erisIndex = bodies.findIndex((body) => body.id === "eris")
+      const neoWiseIndex = bodies.findIndex((body) => body.id === "c2020f3-neowise")
+
       if (sunIndex !== -1) {
         bodies[sunIndex].gravity = 274
         bodies[sunIndex].density = 1.41
       }
-      if (sunIndex !== -1) {
+      if (ceresIndex !== -1) {
         bodies[ceresIndex].englishName = "Ceres"
         bodies[ceresIndex].bodyType = "Dwarf Planet"
         bodies[ceresIndex].imageURL = ceresImage
+      }
+      if (erisIndex !== -1) {
+        bodies[erisIndex].englishName = "Eris"
+      }
+      if (neoWiseIndex !== -1) {
+        bodies[neoWiseIndex].englishName = "C2020F3-NEOWISE"
       }
 
       if (isSearchSubmitted) {

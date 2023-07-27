@@ -8,6 +8,7 @@ const SearchItem = ({ bodyType, bodyName, bodyId, vol, sideralOrbit }) => {
   useEffect(() =>{
     setFirstSearch(false);
   }, [])
+  
   return (
     <Link 
       key={`${bodyName}-${bodyId}`} 

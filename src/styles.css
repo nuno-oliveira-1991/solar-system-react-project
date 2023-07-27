@@ -3,16 +3,19 @@ html, body {
   margin: 0;
   padding: 0;
   height: -webkit-fill-available;
+  background-color: black;
+  display: flex;
+  justify-content: center;
 }
 
 #root {
-  position: relative;
-  background-color: black;
-  height: -webkit-fill-available;
+  position: fixed;
+  width: 100%;
+  max-width: 1600px;
+  height: 100%;
   padding: 2em;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
-
 }
 
 .btn {

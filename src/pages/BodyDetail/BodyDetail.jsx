@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { useFormStatesContext } from "./../../contexts/FormContext";
-import style from "./body-detail-style.module.scss";
+import React, { useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+import { useFormStatesContext } from "./../../contexts/FormContext"
+import style from "./body-detail-style.module.scss"
 
 const BodyDetail = () => {
-  const { detailMode, setDetailMode, setSearchMode, searchResults } = useFormStatesContext();
-  const navigate = useNavigate();
-  const { englishName } = useParams();
+  const { detailMode, setDetailMode, setSearchMode, searchResults } = useFormStatesContext()
+  const navigate = useNavigate()
+  const { englishName } = useParams()
 
   useEffect(() => {
     setSearchMode(false)
-    setDetailMode(true);
-  }, []);
+    setDetailMode(true)
+  }, [])
   
   const selectedBody = searchResults.find((body) => {
     return body.englishName === englishName;
-  });
+  })
 
   const { 
     imageURL,
@@ -35,7 +35,7 @@ const BodyDetail = () => {
     discoveredBy,
     sideralOrbit,
     sideralRotation
-   } = selectedBody;
+   } = selectedBody
 
   return (
     <>
@@ -97,4 +97,4 @@ const BodyDetail = () => {
   );
 };
 
-export default BodyDetail;
+export default BodyDetail

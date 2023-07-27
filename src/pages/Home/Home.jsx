@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { useFormStatesContext } from "./../../contexts/FormContext";
-import style from "./home-styles.module.scss";
+import { useEffect } from "react"
+import { useFormStatesContext } from "./../../contexts/FormContext"
+import style from "./home-styles.module.scss"
 
 const Home = () => {
   const { 
@@ -12,12 +12,8 @@ const Home = () => {
     if (!isSearchInitialized) setSearchMode(false)
   }, [isSearchInitialized])
 
-
-
   return (
-    <div className={style["container"]}>
-      
-    </div>
+    <div className={style["container"]}></div>
   )
 }
 

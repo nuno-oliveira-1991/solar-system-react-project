@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useFormStatesContext } from "../../contexts/FormContext";
-import FilterInput from "../FilterInput/FilterInput";
-import style from "./search-styles.module.scss";
+import { useEffect } from "react"
+import { Link } from "react-router-dom"
+import { useFormStatesContext } from "../../contexts/FormContext"
+import FilterInput from "../FilterInput/FilterInput"
+import style from "./search-styles.module.scss"
 
 const SearchBar = () => {
 
@@ -28,11 +28,11 @@ const SearchBar = () => {
   } = useFormStatesContext();
 
   const getSearchResults = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     setDetailMode(false)
     if (!isSearchInitialized) {
-      setIsSearchInitialized(true);
-      setIsSearchSubmitted(true);
+      setIsSearchInitialized(true)
+      setIsSearchSubmitted(true)
     } else {
       setIsSearchSubmitted(true)
     }
@@ -40,14 +40,14 @@ const SearchBar = () => {
 
   // 
   const handleFilterMenuClick = () => {
-    if (!isSubMenuOpen) setIsSubMenuOpen(true);
+    if (!isSubMenuOpen) setIsSubMenuOpen(true)
   };
   const handleListItemClick = () => {
-    if (isSubMenuOpen) setIsSubMenuOpen(false);
+    if (isSubMenuOpen) setIsSubMenuOpen(false)
   };
 
   useEffect(() => {
-    if (filterType) setFilterTitle(filterType.charAt(0).toUpperCase() + filterType.slice(1));
+    if (filterType) setFilterTitle(filterType.charAt(0).toUpperCase() + filterType.slice(1))
     setBodyType(undefined)
     setMassExponent(undefined)
     setMassValue(undefined)
@@ -58,10 +58,10 @@ const SearchBar = () => {
 
   useEffect(() => {
     if (isSearchSubmitted) {
-      setIsSearchSubmitted(false);
+      setIsSearchSubmitted(false)
       if (detailMode) setDetailMode(false)
     }
-  }, [isSearchSubmitted]);
+  }, [isSearchSubmitted])
 
   return (
       <div className={style["container"]}>

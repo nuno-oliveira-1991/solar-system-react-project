@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { useFormStatesContext } from "./../../contexts/FormContext";
+import { Link } from "react-router-dom"
+import { useFormStatesContext } from "./../../contexts/FormContext"
 import style from "./navbar-style.module.scss"
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar"
 
 const NavBar = () => {
   const {

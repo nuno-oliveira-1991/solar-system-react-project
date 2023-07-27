@@ -94,11 +94,12 @@
     display: flex;
     justify-content: center;
     background-color: black;
+    box-sizing: border-box;
     width: 100%;
     opacity: 80%;
 
     img {
-      width: 100%;
+      width: calc(100% - 4em);
       padding: 2em;
     }
   }

@@ -3,7 +3,7 @@ import { useFormStatesContext } from "./../../contexts/FormContext"
 import SearchItem from "./SearchItem/SearchItem"
 import style from "./search-results-styles.module.scss"
 import ceresImage from "./../../assets/images/ceres.png"
-import erisImage from "../../assets/images/eris.png"
+import erisImage from "./../../assets/images/eris.png" // test para o bug do netlify
 import ganymedesMoonImage from "./../../assets/images/ganymede.png"
 import asteroidImage from "./../../assets/images/asteroid.png"
 

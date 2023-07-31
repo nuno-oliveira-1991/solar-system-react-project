@@ -5,6 +5,7 @@ import style from "./search-results-styles.module.scss"
 import ceresImage from "./../../assets/images/ceres.png"
 import ganymedesMoonImage from "./../../assets/images/ganymede.png"
 import asteroidImage from "./../../assets/images/asteroid.png"
+import erisImage from "./../../assets/images/eris.png"
 
 const SearchResults = () => {
   const { 
@@ -42,10 +43,10 @@ const SearchResults = () => {
     if (allBodies) {
       allBodies.map(async (body) => {
         let name = body.id
-        name.toLowerCase()
         
         if (body.bodyType === "Moon" && body.englishName !== "Moon") body.imageURL = ganymedesMoonImage
         else if (body.bodyType === "Asteroid") body.imageURL = asteroidImage
+        else if (body.id === "eris") body.imageURL = erisImage
         else {
           const dynamicImage = await import(`./../../assets/images/${name}.png`)
           body.imageURL = dynamicImage.default

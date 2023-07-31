@@ -21,10 +21,12 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 0.5em;
+  top: 0.8em;
   z-index: 3;
   width: 2em;
   font-size: 2em;
+
+  img {height: 0.6em;}
 }
 
 .info {
@@ -45,14 +47,9 @@
   flex-direction: column;
   margin-right: 2em;
 
-  h1 {
-    margin: 0 0 1em;
-  }
+  h1 {margin: 0 0 1em;}
 
-  div {
-    display: flex;
-
-  }
+  div {display: flex;}
 
   p {margin: 1em 0}
 }
@@ -81,9 +78,7 @@
 
 @media screen and (max-width: 1060px) {
 
-  .container {
-    padding: 1em 0;
-  }
+  .container {padding: 1em 0;}
 
   .info {
     flex-direction: column;
@@ -109,15 +104,6 @@
     font-size: 0.8em;
     margin: 0;
     
-    h1 {
-      margin-bottom: 1em;
-    }
-  }
-
-
-  .go-back-button {
-    position: absolute;
-    top: 0.2em;
-    z-index: 1;
+    h1 {margin-bottom: 1em;}
   }
 }

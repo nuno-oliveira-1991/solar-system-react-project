@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { useFormStatesContext } from "./../../contexts/FormContext"
 import style from "./body-detail-style.module.scss"
+import goBackIcon from "./../../assets/icons/go-back-icon.png"
 
 const BodyDetail = () => {
   const { 
@@ -48,13 +49,15 @@ const BodyDetail = () => {
    } = selectedBody
 
    useEffect(() => {
-    if (aroundPlanet.planet == "terre") setMainPlanet("Earth")
-    if (aroundPlanet.planet == "mars") setMainPlanet("Mars")
-    if (aroundPlanet.planet == "jupiter") setMainPlanet("Jupiter")
-    if (aroundPlanet.planet == "saturne") setMainPlanet("Saturn")
-    if (aroundPlanet.planet == "uranus") setMainPlanet("Uranus")
-    if (aroundPlanet.planet == "neptune") setMainPlanet("Neptune")
-    if (aroundPlanet.planet == "pluton") setMainPlanet("Pluto")
+    if (aroundPlanet) {
+      if (aroundPlanet.planet == "terre") setMainPlanet("Earth")
+      if (aroundPlanet.planet == "mars") setMainPlanet("Mars")
+      if (aroundPlanet.planet == "jupiter") setMainPlanet("Jupiter")
+      if (aroundPlanet.planet == "saturne") setMainPlanet("Saturn")
+      if (aroundPlanet.planet == "uranus") setMainPlanet("Uranus")
+      if (aroundPlanet.planet == "neptune") setMainPlanet("Neptune")
+      if (aroundPlanet.planet == "pluton") setMainPlanet("Pluto")
+    }
    }, [])
 
   return (
@@ -68,7 +71,7 @@ const BodyDetail = () => {
               setSearchMode(true)
             }}
             className={style["go-back-button"]}>
-              &#8630;
+              <img src={goBackIcon} alt="go-back"/>
           </button>
           <div className={style["info"]}>
             <div className={style["image"]}>

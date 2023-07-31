@@ -38,9 +38,6 @@ html, body {
 .btn--blue {
   background-color: rgba(61, 95, 168, 1);
 }
-.btn--exit {
-  background-color: rgba(142, 63, 63, 1);
-}
 
 ::-webkit-scrollbar {
   width: 0;

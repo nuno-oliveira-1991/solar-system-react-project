@@ -1,19 +1,20 @@
 import { useEffect } from "react"
-import { useFormStatesContext } from "./../../../contexts/FormContext";
+import { useFormStatesContext } from "./../../../contexts/FormContext"
 import { Link } from "react-router-dom"
 import style from "./search-item-style.module.scss"
 
 const SearchItem = ({ bodyType, bodyName, bodyId, vol, sideralOrbit }) => {
   const { setFirstSearch } = useFormStatesContext()
+
   useEffect(() =>{
-    setFirstSearch(false);
+    setFirstSearch(false)
   }, [])
   
   return (
     <Link 
       key={`${bodyName}-${bodyId}`} 
       style={{ textDecoration: 'none', height: '100%' }} 
-      to={`/search/${bodyName}`}>
+      to={`/search/${bodyName.includes("/") ? bodyId : bodyName.toLowerCase()}`}>
       <div className={style["result-item"]}>
         <span className={style["identification"]}>{bodyName}</span>
         <span className={style["identification"]}>{bodyType}</span>

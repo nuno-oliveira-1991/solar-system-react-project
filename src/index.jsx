@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/search" element={<Outlet />}>
             <Route index element={<SearchResults />} />
-            <Route path=":englishName" element={<BodyDetail />} />
+            <Route path=":bodyPageName" element={<BodyDetail />} />
           </Route>
         </Routes>
         <SystemModel />

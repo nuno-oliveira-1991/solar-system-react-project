@@ -32,13 +32,13 @@ const MassInput = () => {
       <ul className={style["filter-menu-content"]}>
         <li>
           <span>Value</span>
-          <input type="number" className={style["input"]} value={massValue} onChange={(event) => {
+          <input type="number" className={style["input"]} value={massValue} name="massValue" onChange={(event) => {
             setMassValue(event.target.value)
-          }} min="0" max="30" />
+          }} min="0" max="30" required/>
           <label>Exponent</label>
-          <input type="number" className={style["input"]} value={massExponent} onChange={(event) => {
+          <input type="number" className={style["input"]} value={massExponent} name="massExponent" onChange={(event) => {
             setMassExponent(event.target.value)
-          }} min="0" max="28" />
+          }} min="0" max="28" required/>
         </li>
       </ul>
     </>

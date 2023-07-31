@@ -34,6 +34,7 @@ const SearchResults = () => {
         const bodies = data.bodies
         setAllBodies(bodies)
         setIsLoading(false)
+        console.log(data)
       })
   }, [])
 
@@ -106,7 +107,7 @@ const SearchResults = () => {
         setSearchResults(bodiesThatMatched)
       }
     }
-  }, [ allBodies, isSearchSubmitted, mass, density, bodyType, gravity, filterType])
+  }, [allBodies, isSearchSubmitted, mass, density, bodyType, gravity, filterType])
 
   return (
     <div className={style["container"]}>
@@ -123,20 +124,9 @@ const SearchResults = () => {
             key={body.id}
             bodyId={body.id}
             bodyName={body.englishName}
-            bodyType={body.bodyType} 
-            equaRadius={body.equaRadius}
-            polarRadius={body.polarRadius}
-            gravity={body.gravity}
-            density={body.density}
-            mass={body.mass}
+            bodyType={body.bodyType}
             vol={body.vol}
-            avgTemp={body.avgTemp}
-            inclination={body.inclination}
-            axialTilt={body.axialTilt}
-            discoveryDate={body.discoveryDate}
-            discoveredBy={body.discoveredBy}
             sideralOrbit={body.sideralOrbit}
-            sideralRotation={body.sideralRotation}
           />
         ))}
     </div>

@@ -4,9 +4,16 @@ import { useFormStatesContext } from "./../../contexts/FormContext"
 import style from "./body-detail-style.module.scss"
 
 const BodyDetail = () => {
-  const { detailMode, setDetailMode, setSearchMode, searchResults } = useFormStatesContext()
+  const { 
+    detailMode, 
+    setDetailMode, 
+    setSearchMode, 
+    searchResults, 
+    mainPlanet, 
+    setMainPlanet 
+  } = useFormStatesContext()
   const navigate = useNavigate()
-  const { englishName } = useParams()
+  const { bodyPageName } = useParams()
 
   useEffect(() => {
     setSearchMode(false)
@@ -14,12 +21,15 @@ const BodyDetail = () => {
   }, [])
   
   const selectedBody = searchResults.find((body) => {
-    return body.englishName === englishName;
+    return body.englishName === 
+    bodyPageName.charAt(0).toUpperCase() 
+    + bodyPageName.slice(1, bodyPageName.length) 
+    || body.id === bodyPageName;
   })
 
   const { 
     imageURL,
-    bodyName,
+    englishName,
     bodyType, 
     equaRadius,
     polarRadius,
@@ -37,6 +47,16 @@ const BodyDetail = () => {
     sideralRotation
    } = selectedBody
 
+   useEffect(() => {
+    if (aroundPlanet.planet == "terre") setMainPlanet("Earth")
+    if (aroundPlanet.planet == "mars") setMainPlanet("Mars")
+    if (aroundPlanet.planet == "jupiter") setMainPlanet("Jupiter")
+    if (aroundPlanet.planet == "saturne") setMainPlanet("Saturn")
+    if (aroundPlanet.planet == "uranus") setMainPlanet("Uranus")
+    if (aroundPlanet.planet == "neptune") setMainPlanet("Neptune")
+    if (aroundPlanet.planet == "pluton") setMainPlanet("Pluto")
+   }, [])
+
   return (
     <>
       {detailMode && (
@@ -52,13 +72,14 @@ const BodyDetail = () => {
           </button>
           <div className={style["info"]}>
             <div className={style["image"]}>
-              <img src={imageURL}></img>
+              <img src={imageURL} alt={englishName}></img>
             </div>
             <div className={style["description"]}>
               <h1>{englishName}</h1>
               <div>
                 <div className={style["properties-column"]}>
                   <span>Body Type</span>
+                  {aroundPlanet && <span>Satellite Of</span>}
                   <span>Volume</span>
                   <span>Equatorial Radius</span>
                   <span>Polar Radius</span>
@@ -74,6 +95,7 @@ const BodyDetail = () => {
                 </div>
                 <div className={style["values-column"]}>
                   <span>{bodyType}</span>
+                  {aroundPlanet && <span>{mainPlanet}</span>}
                   <span>{ vol !== null ? `${(vol.volValue * Math.pow(10, vol.volExponent)).toExponential(4)} km3` : "unknown" }</span>
                   <span>{equaRadius} km</span>
                   <span>{polarRadius} km</span>

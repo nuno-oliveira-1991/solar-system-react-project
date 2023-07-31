@@ -21,6 +21,7 @@ export const FormStatesContextProvider = ({ children }) => {
   const [mass, setMass] = useState(undefined)
   const [gravity, setGravity] = useState(undefined)
   const [density, setDensity] = useState(undefined)
+  const [mainPlanet, setMainPlanet] = useState(undefined)
   const [searchMode, setSearchMode] = useState(false)
   const [isSearchInitialized, setIsSearchInitialized] = useState(false)
   const [isSearchSubmitted, setIsSearchSubmitted] = useState(undefined)
@@ -51,6 +52,8 @@ export const FormStatesContextProvider = ({ children }) => {
     setGravity,
     density,
     setDensity,
+    mainPlanet,
+    setMainPlanet,
     searchMode,
     setSearchMode,
     isSearchInitialized, 

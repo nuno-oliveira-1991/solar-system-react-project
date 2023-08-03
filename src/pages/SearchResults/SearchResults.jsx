@@ -132,6 +132,7 @@ const SearchResults = () => {
             imageURL={body.imageURL}
           />
         ))}
+        {searchResults && searchResults.length === 0 && <span>No results were found.</span>}
     </div>
   );
 };

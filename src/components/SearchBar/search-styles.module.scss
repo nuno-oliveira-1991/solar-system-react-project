@@ -35,12 +35,15 @@
     width: 100%;
     margin: 0;
     padding: 1em;
+    cursor: pointer;
   }
 }
 
 .filter-menu:hover .filter-menu-content {display: block}
 
-.filter-menu-content li:hover {background-color: #ddd}
+.filter-menu-content li:hover {
+  background-color: #ddd;
+}
 
 .filter-menu-content:hover .filter-menu-content {display: block} 
 

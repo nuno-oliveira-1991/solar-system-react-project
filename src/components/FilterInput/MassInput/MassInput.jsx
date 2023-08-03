@@ -1,43 +1,51 @@
-import { useEffect } from "react"
-import { useFormStatesContext } from "../../../contexts/FormContext"
-import style from "./../filter-input-styles.module.scss"
+import React, { useEffect } from "react";
+import { useFormStatesContext } from "../../../contexts/FormContext";
+import style from "./../filter-input-styles.module.scss";
 
-const MassInput = () => { 
+const MassInput = () => {
   const {
     massExponent,
     setMassExponent,
     massValue,
     setMassValue,
-    mass, 
+    mass,
     setMass,
-    validationError, 
+    validationError,
     setValidationError,
-    errorMessage, 
-    setErrorMessage
-  } = useFormStatesContext()
+    errorMessage,
+    setErrorMessage,
+  } = useFormStatesContext();
 
   useEffect(() => {
-    setValidationError(false)
-  }, [])
+    setValidationError(false);
+  }, []);
 
   useEffect(() => {
-    const value = parseFloat(massValue)
-    const exponent = parseFloat(massExponent)
+    const value = parseFloat(massValue);
+    const exponent = parseFloat(massExponent);
 
     if (!isNaN(value) && !isNaN(exponent)) {
-      setMass(value * Math.pow(10, exponent))
+      setMass(value * Math.pow(10, exponent));
     }
   }, [massValue, massExponent]);
 
   const handleInputValidation = (event, maxValue, string) => {
-    if (event.target.value > maxValue || event.target.value !== "e") {
-      setValidationError(true)
-      setErrorMessage(`${string} must be a number and equal or lesser than ${maxValue}.`)
+    const { value } = event.target;
+    const isValidNumber = !isNaN(parseFloat(value));
+  
+    if (value === '' || (isValidNumber && (value >= 0 && value <= maxValue))) {
+      setValidationError(false);
+      setErrorMessage('');
     } else {
-      setValidationError(false); 
-      event.target.name === "massValue" ? setMassValue(event.target.value) : setMassExponent(event.target.value)
+      setValidationError(true);
+      setErrorMessage(`${string} must be a number and equal or lesser than ${maxValue}.`);
     }
-  }
+    if (event.target.name === "massValue" && (value === '' || isValidNumber)) {
+      setMassValue(value);
+    } else if (event.target.name === "massExponent" && (value === '' || isValidNumber)) {
+      setMassExponent(value);
+    }
+  };
 
   return (
     <>
@@ -48,18 +56,32 @@ const MassInput = () => {
       <ul className={style["filter-menu-content"]}>
         <li>
           <label>Value</label>
-          <input type="number" className={style["input"]} value={massValue} name="massValue" onChange={(event) => {
-            handleInputValidation(event, 30, "Mass value")
-          }} min="0" max="30" required/>
+          <input
+            type="number"
+            className={style["input"]}
+            value={massValue}
+            name="massValue"
+            onChange={(event) => {
+              handleInputValidation(event, 30, "Mass value");
+            }}
+            required
+          />
           <label>Exponent</label>
-          <input type="number" className={style["input"]} value={massExponent} name="massExponent" onChange={(event) => {
-            handleInputValidation(event, 28, "Exponent value")
-          }} min="0" max="28" required/>
+          <input
+            type="number"
+            className={style["input"]}
+            value={massExponent}
+            name="massExponent"
+            onChange={(event) => {
+              handleInputValidation(event, 28, "Exponent value");
+            }}
+            required
+          />
         </li>
         {validationError && <span className={style["error-message"]}>{errorMessage}</span>}
       </ul>
     </>
-  )
-} 
+  );
+};
 
-export default MassInput
+export default MassInput;

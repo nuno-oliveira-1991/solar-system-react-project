@@ -5,7 +5,6 @@ import style from "./search-results-styles.module.scss"
 import ceresImage from "./../../assets/images/ceres.png"
 import ganymedesMoonImage from "./../../assets/images/ganymede.png"
 import asteroidImage from "./../../assets/images/asteroid.png"
-// because Eris image doesn't work on netlify server (check later, comets too)
 import erisImage from "./../../assets/images/eris.png" 
 
 const SearchResults = () => {

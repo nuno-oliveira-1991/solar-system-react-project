@@ -1,6 +1,7 @@
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useFormStatesContext } from "./../../contexts/FormContext"
 import style from "./home-styles.module.scss"
+import RandomFact from "./RandomFact/RandomFact"
 
 const Home = () => {
   const { 
@@ -13,7 +14,9 @@ const Home = () => {
   }, [isSearchInitialized])
 
   return (
-    <div className={style["container"]}></div>
+    <div className={style["container"]}>
+      <RandomFact />
+    </div>
   )
 }
 

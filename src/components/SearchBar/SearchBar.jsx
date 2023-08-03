@@ -24,27 +24,28 @@ const SearchBar = () => {
     detailMode,
     setDetailMode,
     isSubMenuOpen,
-    setIsSubMenuOpen
+    setIsSubMenuOpen,
+    setFirstSearch
   } = useFormStatesContext();
 
   const getSearchResults = (event) => {
     event.preventDefault()
     setDetailMode(false)
+    setFirstSearch(false)
     if (!isSearchInitialized) {
       setIsSearchInitialized(true)
       setIsSearchSubmitted(true)
     } else {
       setIsSearchSubmitted(true)
     }
-  };
+  }
 
-  // 
   const handleFilterMenuClick = () => {
     if (!isSubMenuOpen) setIsSubMenuOpen(true)
-  };
+  }
   const handleListItemClick = () => {
     if (isSubMenuOpen) setIsSubMenuOpen(false)
-  };
+  }
 
   useEffect(() => {
     if (filterType) setFilterTitle(filterType.charAt(0).toUpperCase() + filterType.slice(1))
@@ -54,7 +55,7 @@ const SearchBar = () => {
     setMass(undefined)
     setGravity(undefined)
     setDensity(undefined)
-  }, [filterType]);
+  }, [filterType])
 
   useEffect(() => {
     if (isSearchSubmitted) {
@@ -67,7 +68,7 @@ const SearchBar = () => {
       <div className={style["container"]}>
         <form onSubmit={getSearchResults}>
           <div className={style["header"]}>
-            <button className={`${style["filter-menu"]} ${"btn btn--blue"}`} onClick={handleFilterMenuClick}>
+            <button type="button" className={`${style["filter-menu"]} ${"btn btn--blue"}`} onClick={handleFilterMenuClick}>
               {filterTitle}
               {isSubMenuOpen && <ul className={style["filter-menu-content"]}>
                 <li onClick={() => {setFilterType("bodyType"); handleListItemClick()}}>Body Type</li>

@@ -6,19 +6,13 @@
   margin-bottom: 0.5em;
 }
 
-.identification {
+.identification, .attribute {
   position: relative;
   width:50%;
   font-style: italic;
 }
 
-.attribute {
-  position: relative;
-  width:50%;
-  font-style: italic;
-}
-
-.result-item:hover .identification {
+.result-item:hover .identification, .result-item:hover .attribute {
   color: gray;
   cursor: pointer;
 }

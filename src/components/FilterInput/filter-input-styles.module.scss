@@ -9,7 +9,6 @@
 }
 
 .filter-menu {
-  background-color: none;
   color: white;
   font-size: 1em;
   text-align: center;
@@ -42,12 +41,28 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    position: relative;
     text-decoration: none;
     text-align: left;
     color: black;
     padding: 1em 2em;
     margin: 0;
     width: 100%;
+  }
+
+  input {
+    height: 1em;
+    margin: 1em;
+  }
+
+  .error-message {
+    display: block;
+    position: absolute;
+    top: 110%;
+    margin: 0 auto;
+    color: red;
+    width: 100%;
+    text-align: center;
   }
 }
 

@@ -5,7 +5,8 @@ import style from "./search-results-styles.module.scss"
 import ceresImage from "./../../assets/images/ceres.png"
 import ganymedesMoonImage from "./../../assets/images/ganymede.png"
 import asteroidImage from "./../../assets/images/asteroid.png"
-import erisImage from "./../../assets/images/eris.png"
+// because Eris image doesn't work on netlify server (check later, comets too)
+import erisImage from "./../../assets/images/eris.png" 
 
 const SearchResults = () => {
   const { 
@@ -35,7 +36,6 @@ const SearchResults = () => {
         const bodies = data.bodies
         setAllBodies(bodies)
         setIsLoading(false)
-        console.log(data)
       })
   }, [])
 
@@ -112,7 +112,7 @@ const SearchResults = () => {
 
   return (
     <div className={style["container"]}>
-      {searchResults && !firstSearch &&
+      {searchResults &&
         <div className={style["header"]}>
           <span>Name</span>
           <span>Type</span>

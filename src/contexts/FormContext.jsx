@@ -30,6 +30,8 @@ export const FormStatesContextProvider = ({ children }) => {
   const [aboutMode, setAboutMode] = useState(false)
   const [detailMode, setDetailMode] = useState(false)
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false)
+  const [validationError, setValidationError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(false)  
 
   const contextValue = {
     allBodies, 
@@ -69,7 +71,11 @@ export const FormStatesContextProvider = ({ children }) => {
     detailMode,
     setDetailMode, 
     isSubMenuOpen, 
-    setIsSubMenuOpen
+    setIsSubMenuOpen,
+    validationError, 
+    setValidationError,
+    errorMessage, 
+    setErrorMessage
   }
 
   return (

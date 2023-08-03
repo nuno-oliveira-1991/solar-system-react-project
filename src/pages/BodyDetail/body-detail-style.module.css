@@ -21,10 +21,13 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 0.5em;
+  top: 0.8em;
   z-index: 3;
   width: 2em;
   font-size: 2em;
+}
+.go-back-button img {
+  height: 0.6em;
 }
 
 .info {
@@ -105,10 +108,5 @@
   }
   .description h1 {
     margin-bottom: 1em;
-  }
-  .go-back-button {
-    position: absolute;
-    top: 0.2em;
-    z-index: 1;
   }
 }/*# sourceMappingURL=body-detail-style.module.css.map */

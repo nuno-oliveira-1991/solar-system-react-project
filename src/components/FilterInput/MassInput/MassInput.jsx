@@ -30,9 +30,9 @@ const MassInput = () => {
   }, [massValue, massExponent]);
 
   const handleInputValidation = (event, maxValue, string) => {
-    if (event.target.value > maxValue) {
+    if (event.target.value > maxValue || event.target.value !== "e") {
       setValidationError(true)
-      setErrorMessage(`${string} must be equal or lesser than ${maxValue}.`)
+      setErrorMessage(`${string} must be a number and equal or lesser than ${maxValue}.`)
     } else {
       setValidationError(false); 
       event.target.name === "massValue" ? setMassValue(event.target.value) : setMassExponent(event.target.value)
@@ -47,21 +47,16 @@ const MassInput = () => {
       </span>
       <ul className={style["filter-menu-content"]}>
         <li>
-
           <label>Value</label>
           <input type="number" className={style["input"]} value={massValue} name="massValue" onChange={(event) => {
             handleInputValidation(event, 30, "Mass value")
           }} min="0" max="30" required/>
-
           <label>Exponent</label>
           <input type="number" className={style["input"]} value={massExponent} name="massExponent" onChange={(event) => {
             handleInputValidation(event, 28, "Exponent value")
           }} min="0" max="28" required/>
-
         </li>
-
         {validationError && <span className={style["error-message"]}>{errorMessage}</span>}
-
       </ul>
     </>
   )

@@ -14,7 +14,7 @@ const SearchItem = ({ bodyType, bodyName, bodyId, vol, sideralOrbit }) => {
     <Link 
       key={`${bodyName}-${bodyId}`} 
       style={{ textDecoration: 'none', height: '100%' }} 
-      to={`/search/${bodyName.includes("/") ? bodyId : bodyName.toLowerCase()}`}>
+      to={`/search/${bodyId}`}>
       <div className={style["result-item"]}>
         <span className={style["identification"]}>{bodyName}</span>
         <span className={style["identification"]}>{bodyType}</span>

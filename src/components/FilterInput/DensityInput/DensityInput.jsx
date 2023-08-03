@@ -17,7 +17,7 @@ const DensityInput = () => {
   }, [])
 
   const handleInputValidation = (event, maxValue, string) => {
-    if (event.target.value > maxValue || typeof event.target.value !== "number") {
+    if (event.target.value > maxValue) {
       setValidationError(true)
       setErrorMessage(`${string} must be a number and equal or lesser than ${maxValue}.`)
     } else {

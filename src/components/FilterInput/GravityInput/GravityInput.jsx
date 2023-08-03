@@ -19,7 +19,7 @@ const GravityInput = () => {
   const handleInputValidation = (event, maxValue, string) => {
     if (event.target.value > maxValue) {
       setValidationError(true)
-      setErrorMessage(`${string} must be equal or lesser than ${maxValue}.`)
+      setErrorMessage(`${string} must be a number equal or lesser than ${maxValue}.`)
     } else {
       setValidationError(false); 
       setGravity(event.target.value)

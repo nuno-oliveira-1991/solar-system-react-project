@@ -36,6 +36,7 @@ const SearchResults = () => {
         const bodies = data.bodies
         setAllBodies(bodies)
         setIsLoading(false)
+        console.log (data)
       })
   }, [])
 
@@ -128,6 +129,7 @@ const SearchResults = () => {
             bodyType={body.bodyType}
             vol={body.vol}
             sideralOrbit={body.sideralOrbit}
+            imageURL={body.imageURL}
           />
         ))}
     </div>

@@ -22,10 +22,7 @@ const BodyDetail = () => {
   }, [])
   
   const selectedBody = searchResults.find((body) => {
-    return body.englishName === 
-    bodyPageName.charAt(0).toUpperCase() 
-    + bodyPageName.slice(1, bodyPageName.length) 
-    || body.id === bodyPageName;
+    return body.id === bodyPageName;
   })
 
   const { 

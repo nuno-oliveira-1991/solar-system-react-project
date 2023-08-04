@@ -32,12 +32,12 @@ const NavBar = () => {
     setSearchResults(undefined)
     setFilterType(undefined)
     setFilterTitle("Filters")
-    setBodyType(undefined)
-    setMassExponent(undefined)
-    setMassValue(undefined)
-    setMass(undefined)
-    setGravity(undefined)
-    setDensity(undefined)
+    setBodyType("")
+    setMassExponent("")
+    setMassValue("")
+    setMass("")
+    setGravity("")
+    setDensity("")
   }
   const goToAbout = () => {
     setAboutMode(true)

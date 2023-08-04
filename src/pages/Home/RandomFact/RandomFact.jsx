@@ -10,15 +10,18 @@ const RandomFact = () => {
     const displayRandomFact = () => {
       const randomIndex = Math.floor(Math.random() * solarSystemFacts.length)
       setRandomFact(solarSystemFacts[randomIndex])
-      setIsVisible(true)
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 2000)
+      setTimeout(() => {
+        setIsVisible(false);
+      }, 18000)
     };
 
-    setTimeout(() => {
-      setIsVisible(false);
-    }, 1000)
+    
 
     const initialTimeout = setTimeout(displayRandomFact, 2000)
-    const interval = setInterval(displayRandomFact, 60000)
+    const interval = setInterval(displayRandomFact, 20000)
 
     return () => {
       clearTimeout(initialTimeout)
@@ -28,7 +31,7 @@ const RandomFact = () => {
 
   return (
     <div className={isVisible ? styles.fadeIn : styles.fadeOut}>
-      {randomFact && <p>{randomFact}</p>}
+      {randomFact && <p className={styles["random-fact"]}>{randomFact}</p>}
     </div>
   )
 };

@@ -17,8 +17,7 @@ const SearchResults = () => {
     mass, 
     gravity, 
     density,
-    searchResults, 
-    firstSearch,
+    searchResults,
     searchMode,
     setSearchMode,
     setSearchResults,
@@ -35,7 +34,6 @@ const SearchResults = () => {
         const bodies = data.bodies
         setAllBodies(bodies)
         setIsLoading(false)
-        console.log (data)
       })
   }, [])
 

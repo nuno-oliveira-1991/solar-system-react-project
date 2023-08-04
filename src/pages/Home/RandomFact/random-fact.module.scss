@@ -1,3 +1,5 @@
+
+
 .fadeIn {
   opacity: 1;
   transition: opacity 2s ease-in-out;
@@ -6,4 +8,18 @@
 .fadeOut {
   opacity: 0;
   transition: opacity 2s ease-in-out;
+}
+
+.random-fact {
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  margin: 0 0 4.5em ;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media screen and (max-width: 768px) {
+  .random-fact {
+    font-size: 0.8;
+  }
 }

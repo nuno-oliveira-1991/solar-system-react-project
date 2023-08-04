@@ -18,13 +18,9 @@ const RandomFact = () => {
       }, 18000)
     };
 
-    
-
-    const initialTimeout = setTimeout(displayRandomFact, 2000)
     const interval = setInterval(displayRandomFact, 20000)
 
     return () => {
-      clearTimeout(initialTimeout)
       clearInterval(interval)
     };
   }, [])
